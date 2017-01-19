@@ -12,84 +12,68 @@
 	<link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="/images/eggplant.ico">
 </head>
-<body id="top" data-spy="scroll">
 
-		<!--main-nav-->
+<body>
 
-		<div id="main-nav">
 
-			<nav class="navbar">
-				<div class="container">
-
-					<div class="navbar-header">
-						<a href="index.html" class="navbar-brand">EGGPLANTS</a>
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ftheme">
-							<span class="sr-only">Toggle</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-
-					<div class="navbar-collapse collapse" id="ftheme">
-
-						<ul class="nav navbar-nav navbar-right">
-							<li class="active"><a href="/"><i class="fa fa-home"></i> home</a></li>
-							<li class="hidden-sm hidden-xs">
-	                            <a href="#" id="ss"><i class="fa fa-search" aria-hidden="true"></i> Direct Download</a>
-	                        </li>
-							<li><a href="https://github.com/Swan/Eggplants"><i class="fa fa-github"></i> Github</a></li>
-							<li><a href="http://github.com/Swan"><i class="fa fa-envelope"></i> contact</a></li>
-						</ul>
-
-					</div>
-
-					<div class="search-form">
-	                    <form action="/direct" method="POST">
-	                        <input type="text" id="s" size="40" name="beatmap" placeholder="Enter an osu! Beatmap Link" />
-	                    </form>
-	                </div>
-
-				</div>
-			</nav>
-		</div>
-
-	</header>
-
-	<!--slider-->
-	<div id="slider" class="flexslider">
-
-<!-- FIX THIS. NOT RESPONSIVE -->
-<div class="row">
-
-	<div class="col md-12">
-        <ul>
-            <li>
-            	<img src="images/slider/slider1.jpg" class="img responsive">
-				<div class="caption">
-
-					<h2 class="cent">Eggplants</h2>
-					<h4 class="cent-sub">Direct Download: Enter an osu! Beatmap Link to download the map!</h4>
-					<form action="/direct" method="POST">
-						<div class="form-group">
-							<input type="text" class="form-control" name="beatmap" id="direct" placeholder="Enter an osu! Beatmap Link "/>
-							<button class="btn btn-primary">Download</button>
-						</div>
-					</form>
-				</div>
-
-            </li>
-        </ul>
-		</div>
-		</div>
-    </div>
-<!-- -->
-
-	<div id="main"> 
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">EGGPLANTS 🍆</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="https://eggplants.org"><i class="fa fa-home"></i> HOME</a></li>
+				<li><a href="https://github.com/Swan/Eggplants" target="_blank"><i class="fa fa-github"></i> GITHUB</a></li>				
+				<li><a href="https://swan.moe" target="_blank"><i class="fa fa-envelope"></i> SWAN</a></li>
+			</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+	<!-- /NAVBAR -->
 
-			<h1 class="main-header"><i class="fa fa-music"></i> Beatmap Listing</h1>
-			<h4 class="main-header">Here, you can find and download any beatmaps you want. You can search by song name, ranked status, mode, or even map creator!</h4><br/>
+	<!-- HEADER -->
+<section id="test" >
+
+	<div class="container">
+		<br/><br/>
+		<h1 class="cent header-text">EGGPLANTS</h1>
+		<h4 class="cent-sub">An alternative site for downloading osu! beatmaps</h4>		
+		<h4 class="cent-sub">Direct Download: Enter an osu! Beatmap Link to download the map!</h4>	
+
+		<form action="/direct" method="POST">
+			<div class="form-group">
+				<input type="text" class="form-control" id="direct-form" name="beatmap" id="direct" placeholder="Enter an osu! Beatmap Link " required>
+				<br/>
+				<button class="btn btn-primary">Download</button>
+			</div>
+		</form>
+	</div>
+</section>	
+	<!-- /HEADER -->
+
+
+<section id="beatmap-listing">
+
+	<div class="container">
+
+		<!-- Beatmap Listing Heading -->
+		<div class="row">
+			<div class="col-lg-12">
+				<br/>
+				<h1 class="main-header"><i class="fa fa-music"></i> Beatmap Listing</h1>
+				<h4 class="main-header">Here, you can find and download any beatmaps you want. You can search by song name, ranked status, mode, or even map creator!</h4><br/>					
+			</div>
+		</div>	
+		<!-- /Beatmap Listing Heading -->
+
 
 			<!-- Display No Beatmaps Found Error -->
 			<% if (typeof beatmaps != 'undefined') { %>
@@ -106,6 +90,8 @@
 						</div>
 					<% } %>
 			<%} %>
+			<!-- /Display No Beatmaps Found Error -->
+
 
 			<!-- Display Success Message -->
 			<% if (typeof beatmaps != 'undefined') { %>
@@ -121,9 +107,11 @@
 
 						</div>
 					<% } %>
-			<%} %>			
+			<%} %>	
+			<!-- /Display Success Message -->
 
 
+			<!-- Search Query-->
 			<div class="row">
 				<div class="col-md-12">
 					<form action="/" method="POST">
@@ -131,24 +119,26 @@
 						<input type="text" class="form-control cent-align" name="query" id="direct" placeholder="Don't be scared. You can enter an artist, song, or mapper!" required/>
 						<br/>
 				</div>
-			</div>				
+			</div>		
+			<!-- /Search Query-->
 
+			<!-- Game Mode Select -->
 			<div class="row">
-
 				<div class="col-md-6">			
-
-						<div class="form-group">
-							<p class="list-label">Game Mode</p>							
-							<select class="form-control" id="sel1" name="mode">
-								<option>All</option>							
-								<option>osu!</option>
-								<option>Taiko</option>
-								<option>CTB</option>
-								<option>Mania</option>
-							</select>
-						</div>	
+					<div class="form-group">
+						<p class="list-label">Game Mode</p>							
+						<select class="form-control" id="sel1" name="mode">
+							<option>All</option>							
+							<option>osu!</option>
+							<option>Taiko</option>
+							<option>CTB</option>
+							<option>Mania</option>
+						</select>
+					</div>	
 				</div>	
+			<!-- /Game Mode Select -->
 
+			<!-- Ranked Status Select -->
 				<div class="col-md-6">	
 
 						<div class="form-group">
@@ -161,18 +151,20 @@
 							</select>
 						</div>		
 				</div>	
+			<!-- /Ranked Status Select -->
 
+
+				<!-- Find Maps Button & END FORM -->
 				<div class="col-md-12">
-								<br/>
+					<br/>
 					<center>
-						<button class="btn btn-success find-maps">Find Maps!</button><br/>eggplants are tasty
+						<button class="btn btn-success find-maps">Find Maps!</button><br/>Made w/ 🍆<br/>
 					</center>
-
-					</form>
-					
+					</form>				
 				</div>
-				<br/><br/>	
+				<!-- / Find Maps Button & END FORM -->
 
+				
 			<!-- Show Beatmaps -->
 			<% if (typeof beatmaps != 'undefined') { %>
 					<% if (beatmaps['data'].length > 0) { %>
@@ -182,10 +174,10 @@
 							<% beatmaps['data'].forEach(function(beatmap){ %>
 
 								<div class="col-md-3 column productbox ">
-									<img src="http://b.ppy.sh/thumb/<%=beatmap.beatmapset_id%>l.jpg" class="img-responsive thumby">
+									<img src="https://b.ppy.sh/thumb/<%=beatmap.beatmapset_id%>l.jpg" class="img-responsive thumby">
 									<div class="producttitle"><%= beatmap.artist%> - <%=beatmap.title%></div>
-									<div class="productprice"><div class="pull-right"><a href="http://storage.ripple.moe/<%=beatmap.beatmapset_id%>.osz" class="btn btn-primary btn-sm" role="button">Download</a></div><div class="pricetext">By: <a class="link" href="http://osu.ppy.sh/u/<%=beatmap.creator%>" target="_blank"><%=beatmap.creator%></a></div></div>
-									<p class="osu"><a class="osu" href="http://osu.ppy.sh/s/<%=beatmap.beatmapset_id%>" target="_blank">View On osu!</a></p>
+									<div class="productprice"><div class="pull-right"><a href="https://storage.ripple.moe/<%=beatmap.beatmapset_id%>.osz" class="btn btn-primary btn-sm" role="button">Download</a></div><div class="pricetext">By: <a class="link" href="https://osu.ppy.sh/u/<%=beatmap.creator%>" target="_blank"><%=beatmap.creator%></a></div></div>
+									<p class="osu"><a class="osu" href="http://osu.ppy.sh/s/<%=beatmap.beatmapset_id%>" target="_blank">View on osu!</a></p>
 								</div>
 
 							<% }); %>
@@ -193,43 +185,45 @@
 
 						</div>
 					<% } %>
-			<%} %>		
-
+			<%} %>
 
 			</div>
+
+</section>
+
+
+
+
+<br/><br/><br/><br/><br/>
+<div class="copyright">
+  <div class="container">
+    <div class="col-md-6">
+      <p>© 2017. Eggplants is a project created by Swan.</p>
+
+    </div>
+    <div class="col-md-6">
+      <ul class="bottom_ul">
+        <li><a href="https://eggplants.org">eggplants.org</a></li>
+        <li><a href="https://github.com/Swan/Eggplants" target="_blank">github</a></li>
+        <li><a href="https://swan.moe" target="_blank">dev</a></li>
+        <li><a href="https://docs.ripple.moe" target="_blank">api</a></li>
+        <li><a href="https://ripple.moe" target="_blank">ripple</a></li>		
+      </ul>
+    </div>
+  </div>
+</div>
+		
+
 
 		
 
-	</div>
+
+		
 
 
-		<!--bottom footer-->
-		<br/><br/><br/>		<br/><br/><br/>
-		<div id="bottom-footer" class="hidden-xs">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="footer-left">
-							&copy; Swan, 2017. All rights reserved
-                            <div class="credits">
-                                Special Thanks: <a href="https://bootstrapmade.com/">BM</a>
-                            </div>
-						</div>
-					</div>
 
-					<div class="col-md-8">
-						<div class="footer-right">
-                            <ul class="list-unstyled list-inline pull-right">
-                                <li><a href="#home">Home</a></li>							
-                                <li><a href="http://github.com/Swan/Eggplants">Github</a></li>
-                                <li><a href="http://github.com/Swan/"></a></li>
-                            </ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        
+	
+
 
 	
 	<!-- jQuery -->

@@ -7,10 +7,9 @@
 
 /*General*/
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Raleway', 'Open Sans';
 	font-size: 14px;
 	font-size: normal;
-	font-smooth: always;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 }
@@ -93,14 +92,19 @@ textarea:focus {
 	outline: none;
 }
 
-.cover {
-	position: absolute;
-    top: 0;
+
+
+#heading {
+    position: relative;
+    background: url(/images/slider/slider1.jpg) 0% 0% / cover no-repeat fixed;
+    position: fixed;
     left: 0;
     right: 0;
+    top: 0px;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2;
+    text-align: center;
+    max-width: 100%;
+	max-height: 40%;	
 }
 
 .container {
@@ -111,7 +115,6 @@ textarea:focus {
 /*Header*/
 /*Top nav left*/
 .top-nav {
-	;
 	color: #01b1d7;
 	line-height: 40px;
 	border-bottom: 1px solid #DE6ED7;
@@ -269,15 +272,18 @@ textarea:focus {
 /*Slider Caption*/
 #slider .caption {
 	position: absolute;
-	width: 600px;
+	width: 500px;
 	top: 50%;
+	margin-left: 300px;
+	text-align: center;
 }
 
 #slider .caption h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 700;
-	font-size: 48px;
+	font-size: 60px;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 #slider .caption span {
@@ -1285,7 +1291,10 @@ textarea:focus {
 /*Bottom Footer*/
 #bottom-footer {
 	background-color: #282828;
-	padding: 20px 0;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	height: 65px;
 	color: #8e8e8e;
 }
 
@@ -1302,8 +1311,7 @@ textarea:focus {
 }
 
 .cent {
-	padding-top:50px;
-	text-align: left;
+	text-align: center;
 	color: #FFFFFF;
 	text-shadow: 3px 3px #000000;
 }
@@ -1377,3 +1385,41 @@ display: block;
 .link {
  color: #AA5BE3;
 }
+
+.header-text {
+	font-size: 62px;
+}
+
+#direct-form {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#test {
+   	background-image: url("/images/slider/slider1.jpg");
+   	height: 350px;
+	text-align: center;
+  	width:  100%;
+
+}
+
+
+
+ 
+ 
+
+ 
+ .icon-ul { list-style-type:none !important; margin:0px; padding:0px;}
+ .icon-ul li { line-height:75px; width:100%; float:left;}
+ .icon { float:left; margin-right:5px;}
+ 
+ 
+ .copyright { font-family: "Raleway"; min-height:68px; background-color:#171717; bottom: 0; top: 0;}
+ .copyright p { text-align:left; color:#FFF; padding-top: 26px; margin-bottom:0px;}
+ .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
+ .post p { font-size:12px; color:#FFF; line-height:20px;}
+ .post p span { display:block; color:#8f8f8f;}
+ .bottom_ul { list-style-type:none; float:right; margin-bottom:0px;}
+ .bottom_ul li { float:left; line-height:68px;}
+ .bottom_ul li:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
+ .bottom_ul li a { color:#FFF;  font-size:12px;}
