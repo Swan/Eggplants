@@ -10,6 +10,8 @@ Currently, we support all sorts of different kinds of osu! links including:
 * osu.ppy.sh/b/
 * & Direct osu! IP links
 
+Support for other links such as Bloodcat, other new.ppy.sh links, & more will be added in eventually.
+
 To share downloadable beatmaps with your friends, you can use these links:
 * eggplants.org/b/(id)
 * eggplants.org/s/(id)
