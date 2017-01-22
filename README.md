@@ -3,6 +3,17 @@ https://eggplants.org
 
 Eggplants is an open-source website that serves as an alternative to downloading osu! beatmaps. Whether it be the user is not logged into the osu! site, or is on another server - They can still download beatmaps. Eggplants uses the [osu! API](https://github.com/ppy/osu-api/wiki) to find beatmaps & the [Ripple](https://ripple.moe) beatmap mirror to download them.
 
+Currently, we support all sorts of different kinds of osu! links including:
+* osu.ppy.sh/b/
+* osu.ppy.sh/s/
+* new.ppy.sh/s/
+* osu.ppy.sh/b/
+* & Direct osu! IP links
+
+To share downloadable beatmaps with your friends, you can use these links:
+* eggplants.org/b/
+* eggplants.org/s/
+
 # Dependencies
 
 For now, Eggplants uses less than what the package.json contains, but will be used in the future. The current list of dependencies are as follows. Note: It won't work out of the box unless you change the code.
@@ -16,7 +27,7 @@ For now, Eggplants uses less than what the package.json contains, but will be us
 If you want to download the other packages as well, just do:
 `npm install`
 
-# Usage
+# Setting Up
 
 * Assuming that you already have your domain hooked up to your server and Nginx installed, just fill in your domain.
 
