@@ -20,7 +20,7 @@ If you want to download the other packages as well, just do:
 
 * Assuming that you already have your domain hooked up to your server and Nginx installed, just fill in your domain.
 
-```server {
+``server {
     listen 80;
 
     server_name eggplants.org;
@@ -34,16 +34,16 @@ If you want to download the other packages as well, just do:
         proxy_cache_bypass $http_upgrade;
     }
 }
-```
+``
 
 * Add in or comment out the secret for Express-Sessions in app.js
-```
+``
 app.use(require("express-session")({
     secret: "YOUR SECRET GOES HERE", 
     resave: false,
     saveUninitialized: false
 }));  
-```
+``
 
 * Get an osu! API key, and insert it in, into middleware/index.js
 ```
