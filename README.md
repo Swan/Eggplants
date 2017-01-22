@@ -46,7 +46,7 @@ app.use(require("express-session")({
 ```
 
 * Get an osu! API key, and insert it in, into middleware/index.js
-```js
+```
 // osu! API Key
 var osuAPI = "";
 ```
