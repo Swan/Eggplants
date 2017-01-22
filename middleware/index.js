@@ -22,8 +22,24 @@ var Eggplants = {};
 
 // For downloading via link
 Eggplants.Direct = function(req, res, next)
-{
-    // Check validity of beatmap link
+{  
+    // First run a link validity check
+    var beatmap = req.body.beatmap;
+    var isValidLink = true;
+    for (var i=0; i < beatmapLinkCriteria.length; i++) {
+        if (beatmap.includes(beatmapLinkCriteria[i])) {
+            isValidLink = true;
+            break;
+        } else {
+            isValidLink = false;
+        }
+    }
+
+    if (isValidLink == false) {
+        res.redirect("/");
+    }   
+
+    // Check if link is /s/ or /b/
     beatmapLinkCriteria.forEach(function(link){
 
         // Grab Original Beatmap Link
