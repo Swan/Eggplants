@@ -63,7 +63,8 @@ app.use(require("express-session")({
 var osuAPI = "";
 ```
 
-* Lastly, use PM2 or any other tool you'd like for running it. or if you're hosting locally, just run with node app.js.
+* Lastly, use PM2 or any other tool you'd like for running it. or if you're hosting locally, just run with:
+    `node app.js`
 
 # LICENSE 
 
