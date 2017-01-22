@@ -4,15 +4,15 @@ https://eggplants.org
 Eggplants is an open-source website that serves as an alternative to downloading osu! beatmaps. Whether it be the user is not logged into the osu! site, or is on another server - They can still download beatmaps. Eggplants uses the [osu! API](https://github.com/ppy/osu-api/wiki) to find beatmaps & the [Ripple](https://ripple.moe) beatmap mirror to download them.
 
 Currently, we support all sorts of different kinds of osu! links including:
-* osu.ppy.sh/b/:id
-* osu.ppy.sh/s/:id
-* new.ppy.sh/s/:id
-* osu.ppy.sh/b/:id
+* osu.ppy.sh/b/
+* osu.ppy.sh/s/
+* new.ppy.sh/s/
+* osu.ppy.sh/b/
 * & Direct osu! IP links
 
 To share downloadable beatmaps with your friends, you can use these links:
-* eggplants.org/b/:id
-* eggplants.org/s/:id
+* eggplants.org/b/(id)
+* eggplants.org/s/(id)
 
 # Dependencies
 
