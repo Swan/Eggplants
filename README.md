@@ -37,7 +37,7 @@ If you want to download the other packages as well, just do:
 ```
 
 * Add in or comment out the secret for Express-Sessions in app.js
-```js
+```
 app.use(require("express-session")({
     secret: "YOUR SECRET GOES HERE", 
     resave: false,
