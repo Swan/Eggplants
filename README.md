@@ -48,7 +48,7 @@ server {
 }
 ```
 
-* Add in or comment out the secret for Express-Sessions in app.js
+* Add in or comment out the secret for Express-Sessions in [app.js](https://github.com/Swan/Eggplants/blob/master/app.js)
 ```js
 app.use(require("express-session")({
     secret: "YOUR SECRET GOES HERE", 
@@ -57,7 +57,7 @@ app.use(require("express-session")({
 }));  
 ```
 
-* Get an osu! API key, and insert it in, into middleware/index.js
+* Get an osu! API key, and insert it in, into [middleware/index.js](https://github.com/Swan/Eggplants/blob/master/middleware/index.js)
 ```
 // osu! API Key
 var osuAPI = "";
