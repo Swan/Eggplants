@@ -1402,7 +1402,7 @@ display: block;
 
 }
 
-body {
+#homepage {
 	background-image: url("/images/slider/slider1.jpg");
 	min-height:100%; 
 	background-size:cover;  
@@ -1412,7 +1412,7 @@ body {
 	-o-background-size: cover;
 }
 
-html {
+#homepageHtml {
 	height: 100%;
 }
 
@@ -1443,3 +1443,102 @@ html {
 .design a {
     color: #fff;
 } 
+
+#headerlink {
+	color: #F016F0;
+}
+
+.cover {
+    background: url(../images/slider/listingheader.jpg);
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.21)!important;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.21)!important;
+    margin-top: -21px;
+}
+
+.listing {
+	font-family: 'Raleway', 'Open Sans';
+	color: #9d9d9d;
+}
+
+.label-text {
+	color: #aa38d1;
+}
+
+.post
+{
+    background-color: #F7F7F7;
+	overflow: hidden;
+    box-shadow: 0 0 1px #CCC;
+	color: #262626;
+	margin-bottom: 40px;
+	height: 390px;
+}
+.post img
+{
+	width: 100%;
+}
+
+.post .content
+{
+    padding: 15px;
+}
+.post .author
+{
+    font-size: 11px;
+    color: #737373;
+	text-overflow: ellipsis;
+    padding: 25px 30px 20px;
+}
+.post .post-img-content
+{
+    height: 196px;
+    position: relative;
+}
+.post .post-img-content img
+{
+    position: absolute;
+}
+.post .post-title
+{
+    display: table-cell;
+    vertical-align: bottom;
+    z-index: 2;
+    position: relative;
+}
+.post .post-title b
+{
+    background-color: rgba(51, 51, 51, 0.58);
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #FFF;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.artist {
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+.title {
+	overflow: hidden;	
+		text-overflow: ellipsis;
+}
+
+.download {
+	bottom: 0;
+}
+
+.artist-color {
+	color: #dd844d;
+}
+
+.title-color {
+	color: #57ce4a;
+}
+
+.view-on-osu {
+	color: #d690ed;
+}

@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 var request = require("request");
 var flash = require("connect-flash");
 var Eggplants = require("../middleware");
+var Listing = require("../middleware/listing.js");
 
 // Use Dependencies
 router.use(bodyParser.urlencoded({extended: true})); 
@@ -33,6 +34,15 @@ router.get("/s/:id", Eggplants.SetIdDownload, function(req, res){
 
 // Beatmap Id Download Link
 router.get("/b/:id", Eggplants.BeatmapIdDownload, function(req, res){
+});
+
+// Beatmap Listing
+router.get("/osu", function(req, res){
+    res.render("osu");
+});
+
+// Beatmap Listing POST
+router.post("/osu", Listing.Beatmaps, function(req, res){
 });
 
 // 404
