@@ -1478,7 +1478,10 @@ display: block;
 }
 .post img
 {
-	width: 100%;
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 100%;
+  width: 100%;
 }
 
 .post .content
