@@ -13,7 +13,7 @@ var express               = require("express"),
 
 // Use Dependencies
 app.use(require("express-session")({
-    secret: "", 
+    secret: "meme", 
     resave: false,
     saveUninitialized: false
 }));   

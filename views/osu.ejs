@@ -101,51 +101,128 @@
 					
 
 				<% if (typeof beatmaps != 'undefined' && beatmaps.length > 0) { %>
-					<div class="col-md-12">
-						<center><button class="btn btn-danger" disabled>Download All</button></center><br/>
-					</div>							
+					<!--Download All Button-->					
 				<% } %>	
-						<br/><br/>
+						<br/>
 
 
-				<%if (typeof beatmaps != 'undefined' && beatmaps.length > 0) {%>
-				  		<% beatmaps.forEach(function(beatmap){ %>
+				<% if (typeof starterMaps != 'undefined' && starterMaps.length > 0 && typeof beatmaps == 'undefined') {%>
 
-							<div class="col-sm-3 col-md-3">
-								<div class="post">
-									<div class="post-img-content">
-										<img src="https://assets.ppy.sh//beatmaps/<%=beatmap.SetID%>/covers/cover.jpg?1484486820" class="img-responsive" />
-									</div>
-									<div class="content">
-										<div>
-											<strong><h5 class="artist"><i class="fa fa-music"></i> <span class="artist-color">Artist:</span></strong> 
-											<% if (beatmap.Artist.length > 18) { %>
-												<strong><%= beatmap.Artist.substring(0,18)+'...'; %></strong></h5>
-										
-											<% } else { %>
-												<strong><%=beatmap.Artist%></strong></h5>
-											<%} %>											
-											<strong><h5 class="title"><i class="fa fa-star"></i> <span class="title-color">Title:</span></strong> 
-											<% if (beatmap.Title.length > 18) { %>
-												<strong><%= beatmap.Title.substring(0,18)+'...'; %></strong></h5>
-										
-											<% } else { %>
-												<strong><%=beatmap.Title%></strong></h5>
-											<%} %>
+						<% starterMaps.forEach(function(starterMap){ %>
 
-											<hr>
-											<h5><strong>By: <a href="https://osu.ppy.sh/u/<%=beatmap.Creator%>" target="_blank"><%=beatmap.Creator%></a> | <a class="view-on-osu" href="https://osu.ppy.sh/s/<%=beatmap.SetID%>" target="_blank">View on osu!</a></h5></strong>
-										</div>
-										<div>
-											<a class="download btn btn-primary" href="https://storage.ripple.moe/<%=beatmap.SetID%>.osz" target="_blank" class="btn btn-primary btn-sm">Download</a>
-										</div>
-									</div>
+							<div class="col-md-4">
+								<div class="panel">
+
+									<% if (starterMap.Title.length > 15 || starterMap.Artist.length > 15) { %>
+										<div class="panel-heading" style="background-color:#553bcc;color:#fff;"><i class="fa fa-music"></i> <%=starterMap.Artist.substring(0,15)+'...';%> - <%=starterMap.Title.substring(0,15)+'...';%> </div>
+
+									<%} else { %>
+										<div class="panel-heading" style="background-color:#553bcc;color:#fff;"><i class="fa fa-music"></i> <%=starterMap.Artist%> - <%=starterMap.Title%> </div>										
+									<% } %>
+
+									<div class="panel-body" style="background-color:#000;color:#fff; box-shadow:0 -5px 3px #553bcc inset;">
+									
+									<div class="boximg">
+									<a href="https://storage.ripple.moe/<%=starterMap.SetID%>.osz" target="_blank"><img src="https://assets.ppy.sh//beatmaps/<%=starterMap.SetID%>/covers/cover.jpg?1456484081" class="img-responsive"></a>
+									<span class="likebut glyphicon glyphicon-tag"></span>
+									</div>							
+							<br>
+									<strong><p class="pull-left">🍆 <span class="title-color">By: <a class="title-color" href="https://osu.ppy.sh/u/<%=starterMap.Creator%>" target="_blank"><%=starterMap.Creator%></a></span></strong> <br/> <a class="view-on-osu" href="https://osu.ppy.sh/s/<%=starterMap.SetID%>" target="_blank">view on osu!</a><br><br/>
+									<span class="badge pull-left" style="background-color: #f972e7; margin-right: 10px;"><i class="fa fa-heart"></i> <%=starterMap.Favourites%></span>
+
+									<%if (starterMap.RankedStatus  == 1) {%>
+											<span class="badge pull-left" style="background-color: #2d9906; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Ranked</span>
+									<%} else if (starterMap.RankedStatus  == 3) {%>
+											<span class="badge pull-left" style="background-color: #c1a505; margin-right: 10px;"><i class="fa fa-trophy"></i> Qualified</span>
+									<%} else if (starterMap.RankedStatus  == 4) {%>
+											<span class="badge pull-left" style="background-color: #8917c6; margin-right: 10px;"><i class="fa fa-heartbeat"></i> Loved</span>
+									<%} else {%>
+											<span class="badge pull-left" style="background-color: #0f849b; margin-right: 10px;"><i class="fa fa-thumbs-down"></i> Unranked</span>
+									<%}%>
+				
+
+
+
+									<% if (starterMap.HasVideo == true) { %>
+										<span class="badge pull-left" style="background-color: #188207; margin-right: 10px;"><i class="fa fa-video-camera"></i> Video</span>
+									<%} else {%>
+										<span class="badge pull-left" style="background-color: #d69508; margin-right: 10px;"><i class="fa fa-video-camera"></i> No Video</span>
+									<%}%>
+
+									</p>
+								
+									<a href="https://storage.ripple.moe/<%=starterMap.SetID%>.osz" target="_blank"><span class="badge pull-right" style="background-color:teal"><i class="fa fa-download"></i> Download</span></a>
 								</div>
 							</div>
+						</div>
+						
 
-						<%});%>
-				<%}%> 
-			</div>
+
+						<% }); %>				
+				<%}%>
+
+
+				<% if (typeof beatmaps != 'undefined' && beatmaps.length > 0) { %>
+
+
+						<% beatmaps.forEach(function(beatmap){ %>
+
+							<div class="col-md-4">
+								<div class="panel">
+
+									<% if (beatmap.Title.length > 15 || beatmap.Artist.length > 15) { %>
+										<div class="panel-heading" style="background-color:#553bcc;color:#fff;"><i class="fa fa-music"></i> <%=beatmap.Artist.substring(0,15)+'...';%> - <%=beatmap.Title.substring(0,15)+'...';%> </div>
+
+									<%} else { %>
+										<div class="panel-heading" style="background-color:#553bcc;color:#fff;"><i class="fa fa-music"></i> <%=beatmap.Artist%> - <%=beatmap.Title%> </div>										
+									<% } %>
+
+									<div class="panel-body" style="background-color:#000;color:#fff; box-shadow:0 -5px 3px #553bcc inset;">
+									
+									<div class="boximg">
+									<a href="https://storage.ripple.moe/<%=beatmap.SetID%>.osz" target="_blank"><img src="https://assets.ppy.sh//beatmaps/<%=beatmap.SetID%>/covers/cover.jpg?1456484081" class="img-responsive"></a>
+									<span class="likebut glyphicon glyphicon-tag"></span>
+									</div>							
+							<br>
+									<strong><p class="pull-left">🍆 <span class="title-color">By: <a class="title-color" href="https://osu.ppy.sh/u/<%=beatmap.Creator%>" target="_blank"><%=beatmap.Creator%></a></span></strong> <br/> <a class="view-on-osu" href="https://osu.ppy.sh/s/<%=beatmap.SetID%>" target="_blank">view on osu!</a><br><br/>
+									<span class="badge pull-left" style="background-color: #f972e7; margin-right: 10px;"><i class="fa fa-heart"></i> <%=beatmap.Favourites%></span>
+
+									<%if (beatmap.RankedStatus  == 1) {%>
+											<span class="badge pull-left" style="background-color: #2d9906; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Ranked</span>
+									<%} else if (beatmap.RankedStatus  == 3) {%>
+											<span class="badge pull-left" style="background-color: #c1a505; margin-right: 10px;"><i class="fa fa-trophy"></i> Qualified</span>
+									<%} else if (beatmap.RankedStatus  == 4) {%>
+											<span class="badge pull-left" style="background-color: #8917c6; margin-right: 10px;"><i class="fa fa-heartbeat"></i> Loved</span>
+									<%} else {%>
+											<span class="badge pull-left" style="background-color: #0f849b; margin-right: 10px;"><i class="fa fa-thumbs-down"></i> Unranked</span>
+									<%}%>
+				
+
+
+
+									<% if (beatmap.HasVideo == true) { %>
+										<span class="badge pull-left" style="background-color: #188207; margin-right: 10px;"><i class="fa fa-video-camera"></i> Video</span>
+									<%} else {%>
+										<span class="badge pull-left" style="background-color: #d69508; margin-right: 10px;"><i class="fa fa-video-camera"></i> No Video</span>
+									<%}%>
+
+									</p>
+								
+									<a href="https://storage.ripple.moe/<%=beatmap.SetID%>.osz" target="_blank"><span class="badge pull-right" style="background-color:teal"><i class="fa fa-download"></i> Download</span></a>
+								</div>
+							</div>
+						</div>
+						
+
+
+						<% }); %>
+
+				<% } %>
+
+							
+
+			
+		
         </section>
 
 		<!-- jQuery & Exta JavaScript -->

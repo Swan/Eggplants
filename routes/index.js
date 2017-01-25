@@ -37,7 +37,7 @@ router.get("/b/:id", Eggplants.BeatmapIdDownload, function(req, res){
 });
 
 // Beatmap Listing
-router.get("/osu", function(req, res){
+router.get("/osu", Listing.StarterMaps, function(req, res){
     res.render("osu");
 });
 

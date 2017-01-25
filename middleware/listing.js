@@ -85,5 +85,22 @@ Listing.Beatmaps = function(req, res, next) {
 }
 
 
+Listing.StarterMaps = function(req, res, next) {
+
+    request ('http://storage.ripple.moe/api/search', function(error, response, body){
+        if (!error && response.statusCode == 200) {
+            var data = JSON.parse(body);
+            if (data['Sets'] != null) {
+                var starterMaps =  data['Sets'];
+                res.render("osu", {starterMaps: starterMaps});
+            }
+        } else {
+            res.render("osu");
+        }
+    });
+
+}
+
+
 // Export
 module.exports = Listing;

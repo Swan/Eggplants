@@ -1474,7 +1474,9 @@ display: block;
     box-shadow: 0 0 1px #CCC;
 	color: #262626;
 	margin-bottom: 40px;
-	height: 390px;
+	margin-right: 100px;
+	height: 400px;
+	width: 500px;
 }
 .post img
 {
@@ -1545,3 +1547,57 @@ display: block;
 .view-on-osu {
 	color: #d690ed;
 }
+
+.outerpadding{
+    padding:10% 0%;}
+.boximg{
+	position:relative;
+	overflow:hidden;
+	}
+	
+.boximg img{
+		transition:all ease-in 500ms;
+		border:1px solid #fff;
+		width: 100%;
+		height: 80px;
+
+	}	
+
+.boximg:hover {
+filter: blur(2px)	
+}	
+	
+.date{
+	 left: 0;
+    position: absolute;
+    top: 15px;
+	padding:5px;
+	background-color:teal;
+	opacity:0;
+	transition:all ease-in 300ms;
+	
+	}	
+	
+.likebut{
+	  background: none repeat scroll 0 0 teal;
+    height: 25px;
+    padding: 7px;
+    position: absolute;
+    right: 5px;
+    top: 130px;
+    width: 25px;
+	opacity:0.4;
+	transition:all ease-in 300ms;
+	}
+	
+	
+.boximg:hover .date{
+	opacity:1;
+	
+	}	
+.boximg:hover .likebut{
+	opacity:1;
+	
+}
+
+
