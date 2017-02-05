@@ -8,37 +8,67 @@ var request = require('request');
 var eggplants = {};
 
 
+// Downloading beatmaps directly with eggplants.org/s/:id 
 eggplants.setIdDownload = function(req, res, next) {
 
     // Grab BeatmapSetId From Link Param
    var beatmapSetId = req.params.id;
 
    // Run a check if the beatmap exists on Ripple
-   request ("https://storage.ripple.moe/" + beatmapSetId + ".osz", function(error, response, body){
-       if (!error) {
-           // If beatmap not found on Ripple's mirror
-           if (body.includes("That beatmap could not be found :(")) {
+   request ("http://storage.ripple.moe/s/" + beatmapSetId, function(error, response, body){
+       
+       if (!error && response.statusCode == 200) {
 
-               res
-                    .status(404)
-                    .json({
-                        status: 404,
-                        beatmapSetId: beatmapSetId,
-                        error: "The beatmap you are trying to download could not be found."
-                    });
-           } else {
-               // Download Beatmap
-               res.redirect("https://storage.ripple.moe/" + beatmapSetId + ".osz");
-           }
+            res
+                .redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
+
+       } else {
+
+            res
+                .status(404)
+                .json({
+                    status: 404,
+                    error: "The beatmap you are trying to download could not be found."
+                });
        }
+       
    });
 
 }
 
 
+// Download beatmaps directly with eggplants.org/b/:id
+eggplants.beatmapIdDownload = function(req, res, next) {
+    // Grab Beatmap Link by Itself
+    var beatmapId = req.params.id;
 
+    // Request to osu! API
+    request ("http://storage.ripple.moe/b/" + beatmapId, function(error, response, body){
 
+        if (!error & response.statusCode == 200) {
 
+            // Parse data that comes back
+            var data = JSON.parse(body);
+
+            // Grab Beatmap Set ID from API
+            var beatmapSetId = data['ParentSetID'];
+
+            // Download Beatmap
+            res
+                .redirect("http://storage.ripple.moe/" + beatmapSetId + ".osz");
+
+        } else {
+
+            // If beatmap does not exist or there was another error
+            res
+                .status(404)
+                .json({
+                    status: 404,
+                    error: "The beatmap you are trying to download could not be found."
+                })
+        }
+    }); 
+};
 
 
 // ppy
