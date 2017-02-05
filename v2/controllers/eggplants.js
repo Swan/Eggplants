@@ -19,21 +19,13 @@ eggplants.setIdDownload = function(req, res, next) {
        
        if (!error && response.statusCode == 200) {
 
-            res
-                .redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
+            downloadBeatmap(req, res, beatmapSetId);
 
        } else {
 
-            res
-                .status(404)
-                .json({
-                    status: 404,
-                    error: "The beatmap you are trying to download could not be found."
-                });
+            showJsonError(req, res);
        }
-       
    });
-
 }
 
 
@@ -47,25 +39,17 @@ eggplants.beatmapIdDownload = function(req, res, next) {
 
         if (!error & response.statusCode == 200) {
 
-            // Parse data that comes back
+            // Grab Set ID
             var data = JSON.parse(body);
-
-            // Grab Beatmap Set ID from API
             var beatmapSetId = data['ParentSetID'];
 
-            // Download Beatmap
-            res
-                .redirect("http://storage.ripple.moe/" + beatmapSetId + ".osz");
+            // Download
+            downloadBeatmap(req, res, beatmapSetId);
 
         } else {
 
-            // If beatmap does not exist or there was another error
-            res
-                .status(404)
-                .json({
-                    status: 404,
-                    error: "The beatmap you are trying to download could not be found."
-                })
+            showJsonError(req, res);
+
         }
     }); 
 };
@@ -82,6 +66,24 @@ eggplants.peppy = function(req, res) {
             description: "Lord and savior of the circle punching game called osu! If you've made it here, you are a champion."
         });
 }
+
+
+// If beatmap could not be downloaded
+function showJsonError(req, res) {
+        res
+            .status(404)
+            .json({
+                status: 404,
+                 error: "The beatmap you are trying to download could not be found."
+            });
+}
+
+// Download Beatmap
+function downloadBeatmap (req, res, beatmapSetId) {
+        res
+            .redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
+}
+
 
 // Export
 module.exports = eggplants;
