@@ -1,0 +1,22 @@
+{
+  "name": "eggplants",
+  "version": "1.0.0",
+  "description": "osu! beatmap listing",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Swan",
+  "license": "MIT"
+}
