@@ -14,18 +14,17 @@ eggplants.setIdDownload = function(req, res, next) {
     // Grab BeatmapSetId From Link Param
    var beatmapSetId = req.params.id;
 
-   // Run a check if the beatmap exists on Ripple
+   // Check if map exists on ripple & download it if it does
    request ("http://storage.ripple.moe/s/" + beatmapSetId, function(error, response, body){
        
        if (!error && response.statusCode == 200) {
-
             downloadBeatmap(req, res, beatmapSetId);
-
        } else {
-
             showJsonError(req, res);
        }
+
    });
+
 }
 
 
@@ -47,30 +46,27 @@ eggplants.beatmapIdDownload = function(req, res, next) {
             downloadBeatmap(req, res, beatmapSetId);
 
         } else {
-
             showJsonError(req, res);
-
         }
     }); 
 };
 
 
-// --- Helper functions ---
+// --- HELPER FUNCTIONS ---
 
 // If beatmap could not be downloaded
 function showJsonError(req, res) {
-        res
-            .status(404)
-            .json({
-                status: 404,
-                 error: "The beatmap you are trying to download could not be found."
-            });
+     res
+        .status(404)
+        .json({
+            status: 404,
+            error: "The beatmap you are trying to download could not be found."
+        });
 }
 
 // Download Beatmap
 function downloadBeatmap (req, res, beatmapSetId) {
-        res
-            .redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
+    res.redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
 }
 
 
