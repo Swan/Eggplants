@@ -7,6 +7,16 @@ router
     .route('/peppy')
     .get(eggplants.peppy);
 
+// Downloading via /s/ links
+router
+    .route('/s/:id')
+    .get(eggplants.setIdDownload);
+
+// Download via /b/ links
+router
+    .route('/b/:id')
+    .get(eggplants.setIdDownload);           
+
 module.exports = router;
 
     
