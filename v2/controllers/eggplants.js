@@ -55,18 +55,7 @@ eggplants.beatmapIdDownload = function(req, res, next) {
 };
 
 
-// ppy
-eggplants.peppy = function(req, res) {
-    res
-        .status(200)
-        .json({
-            status: 200,
-            name: "Dean Herbert",
-            alias: "Peppy",
-            description: "Lord and savior of the circle punching game called osu! If you've made it here, you are a champion."
-        });
-}
-
+// --- Helper functions ---
 
 // If beatmap could not be downloaded
 function showJsonError(req, res) {
