@@ -11,4 +11,9 @@ function config($routeProvider) {
             controller: LandingController,
             controllerAs: 'vm'
         })
+        .otherwise({
+            templateUrl: '/templates/landing.html',
+            controller: LandingController,
+            controllerAs: 'vm'
+        })
 }    

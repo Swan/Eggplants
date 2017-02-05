@@ -15,7 +15,11 @@ router
 // Download via /b/ links
 router
     .route('/b/:id')
-    .get(eggplants.beatmapIdDownload);           
+    .get(eggplants.beatmapIdDownload);
+
+// Root
+router
+    .route('/');          
 
 module.exports = router;
 
