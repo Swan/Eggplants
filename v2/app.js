@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 // Path
-var path = require('path');    
+var path = require('path');
 
 // Body-Parser
 var bodyParser = require('body-parser');

@@ -15,7 +15,9 @@ router
 
 // Root
 router
-    .route('/');          
+    .route('/')
+    .post(eggplants.direct);      
+
 
 module.exports = router;
 

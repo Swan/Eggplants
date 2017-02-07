@@ -6,16 +6,62 @@
 
         <!-- Bootstrap -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Favicon -->
         <link rel="icon" href="/images/eggplant.ico">
         <!-- Google Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Raleway" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <!-- Insert Header -->
+        <div>
+            <!-- Insert Header -->
+            <nav class="navbar navbar-findcond navbar-fixed-top">
+                <div class="container">
 
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">🍆 EGGPLANTS</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="active"><a href="http://osu.ppy.sh/" target="_blank"><i class="fa fa-music"></i> osu!</a></li>
+                            <li class="active"><a href="https://github.com/Swan/Eggplants"><i class="fa fa-github" target="_blank"></i> Github</a></li>
+                            <li class="active"><a href="http://swan.moe" target="_blank"><i class="fa fa-code" target="_blank"></i> Swan</a></li>
+                            <li class="active"><a href="http://twitter.com/swanuh" target="_blank"><i class="fa fa-twitter" target="_blank"></i> Twitter</a></li>
+                        </ul>
+                        <form action="/" class="navbar-form navbar-left search-form" method="POST" role="search">
+
+                                <input type="text" class="form-control input-sm" placeholder="Enter a beatmap link" name="beatmap" required/>
+                                <button class="btn btn-purple btn-sm"><i class="fa fa-download"></i> Direct Download</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <div class="cover">
+            <div class="container">
+				<div class="col-md-12">
+                    <br><br><br/><br/><br/>
+					<h1 class="cent"> 🍆 EGGPLANTS </h1>
+                    <h3 class="cent"><i class="fa fa-music"></i> Beatmap Listing</h3>
+                    <h4 class="cent">Here, you can search for and find beatmaps to download.</h4>
+                    <h4 class="cent">You don't have to be logged into osu! or deal with slow download speeds. So give it a try!</h4>
+				</div>
+            </div>
+        </div>
 
         <!-- Angular View -->
        <div ng-view></div>
