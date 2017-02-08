@@ -12,7 +12,7 @@ function eggplantsFactory($http) {
 
     function getIniitalBeatmaps() {
 
-        return $.getJSON('http://storage.ripple.moe/api/search')
+        return $.getJSON('http://storage.ripple.moe/api/search?')
             .done(complete)
             .catch(failed)
 
