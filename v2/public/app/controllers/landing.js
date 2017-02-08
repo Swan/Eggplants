@@ -21,6 +21,11 @@ function LandingController($route, $routeParams, eggplantsFactory) {
 
         // Match the form's ranked status to the Ripple APi's.
         var rankedStatusNumber;
+
+        if (rankedStatus == "Loved") {
+            console.log("TRUE!!!");
+        }
+
         switch (rankedStatus) {
 
             case "Ranked":
@@ -28,8 +33,10 @@ function LandingController($route, $routeParams, eggplantsFactory) {
                 break;
             case "Qualified":
                 rankedStatusNumber = 3;
+                break;
             case "Loved":
                 rankedStatusNumber = 4;
+                break;
             case "All Maps":
                 rankedStatusNumber = null;
                 break;
@@ -61,6 +68,8 @@ function LandingController($route, $routeParams, eggplantsFactory) {
             apiRequest = apiRequest.concat("&status=" + rankedStatusNumber);
         }
         
+        console.log(apiRequest);
+
         // Finally, request the new beatmaps from the Ripple API
         return $.getJSON(apiRequest)
             .done(function(response){
