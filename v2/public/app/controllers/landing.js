@@ -21,11 +21,6 @@ function LandingController($route, $routeParams, eggplantsFactory) {
 
         // Match the form's ranked status to the Ripple APi's.
         var rankedStatusNumber;
-
-        if (rankedStatus == "Loved") {
-            console.log("TRUE!!!");
-        }
-
         switch (rankedStatus) {
 
             case "Ranked":
