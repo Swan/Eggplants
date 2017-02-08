@@ -35,9 +35,9 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="/"><i class="fa fa-home"></i> Home</a></li>
                             <li class="active"><a href="http://osu.ppy.sh/" target="_blank"><i class="fa fa-music"></i> osu!</a></li>
-                            <li class="active"><a href="https://github.com/Swan/Eggplants"><i class="fa fa-github" target="_blank"></i> Github</a></li>
-                            <li class="active"><a href="http://swan.moe" target="_blank"><i class="fa fa-code" target="_blank"></i> Swan</a></li>
-                            <li class="active"><a href="http://twitter.com/swanuh" target="_blank"><i class="fa fa-twitter" target="_blank"></i> Twitter</a></li>
+                            <li class="active"><a href="https://github.com/Swan/Eggplants" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+                            <li class="active"><a href="http://swan.moe" target="_blank"><i class="fa fa-code"></i> Swan</a></li>
+                            <li class="active"><a href="http://twitter.com/swanuh" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
                         </ul>
                         <form action="/" class="navbar-form navbar-left search-form" method="POST" role="search">
 
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <!-- Angular View -->
+        <!-- Beatmap Listing -->
        <div ng-view></div>
 
 
@@ -82,6 +82,7 @@
         <!-- Angular Controllers -->
         <script src="/app/controllers/landing.js"></script>
         <!-- Angular Factories -->
+        <script src="/app/factories/eggplantsfactory.js"></script>
 
     </body>
 </html>

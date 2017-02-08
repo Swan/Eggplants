@@ -1,5 +1,3 @@
-// Database Connection
-
 // Express
 var express = require('express');
 var app = express();
@@ -12,6 +10,9 @@ var bodyParser = require('body-parser');
 
 // Require in our routes
  var indexRoutes = require('./routes/index');
+
+// Cors
+ var cors = require('cors');
 
 // Setting Port
 app.set('port', 8080);
@@ -32,6 +33,9 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 // Use Body-Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Use cors
+app.use(cors({origin: 'http://localhost:8888'}));
 
 // Use Routes
 app.use(indexRoutes);

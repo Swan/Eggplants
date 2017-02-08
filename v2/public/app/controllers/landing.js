@@ -1,11 +1,14 @@
 angular.module('eggplants')
     .controller('LandingController', LandingController);
 
-function LandingController($route, $routeParams) {
+function LandingController($route, $routeParams, eggplantsFactory) {
 
     var vm = this;
-    // var id = $routeParams.id; -- sample getting $routeParams
-    console.log(":)");
+
+    eggplantsFactory.getIniitalBeatmaps().then(function(response){
+        console.log(response);
+    });
+
 
     
 }    

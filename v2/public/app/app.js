@@ -3,7 +3,7 @@ angular.module('eggplants', ['ngRoute'])
 
 
 // Route Configuration
-function config($routeProvider) {
+function config($routeProvider, $httpProvider) {
 
     $routeProvider
         .when('/', {
@@ -16,4 +16,5 @@ function config($routeProvider) {
             controller: LandingController,
             controllerAs: 'vm'
         })
+  
 }    
