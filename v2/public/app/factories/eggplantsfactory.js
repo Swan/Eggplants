@@ -6,10 +6,11 @@ angular.module('eggplants')
 function eggplantsFactory($http) {
 
     return {
-        getIniitalBeatmaps: getIniitalBeatmaps
+        getIniitalBeatmaps: getIniitalBeatmaps,
     };
 
 
+    // On page load, it will automaitcally grab the first listed beatmaps from the Ripple API
     function getIniitalBeatmaps() {
 
         return $.getJSON('http://storage.ripple.moe/api/search?')
@@ -18,8 +19,6 @@ function eggplantsFactory($http) {
 
     }
 
-
-    
     // Success
     function complete(response) {
         return response;
