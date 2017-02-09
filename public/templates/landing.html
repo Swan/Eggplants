@@ -1,48 +1,47 @@
-<form name="getNewBeatmaps" ng-submit="vm.getNewBeatmaps()">
-					<div class="row">
-						<!-- SEARCH QUERY -->
-						<div class="col-md-4">
-							<label for="query" class="label-text">Search Query</label>
-							<input type="text" class="form-control" ng-model="vm.search" placeholder="Enter an artist, song title, or even mapper!" required>
-                            <h1>{{ vm.search }}</h1>
-						</div>
-						<!-- /SEARCH QUERY -->
+<div class="container">
+	<form name="getNewBeatmaps" ng-submit="vm.getNewBeatmaps()">
+		<div class="row">
+			<div class="form-group center_div">
+				<div class="col-xs-4">
+					<label for="searchQuery" class="main-header">Search Query</label>
+					<input type="text" class="form-control" id="searchQuery" aria-describedby="emailHelp" placeholder="Search for a beatmap" ng-model="vm.search" required>
+					<small id="sqHelp" class="form-text text-muted">You can search an artist, song title, or even mapper.</small>
+				</div>
+			</div>
 
-						<!-- RANKED STATUS --> 
-						<div class="form-group">
-							<div class="col-md-4 col-sm-12">
-								<label for="status" class="label-text">Ranked Status</label>
-								<select class="form-control" ng-model="vm.rankedStatus">
-									<option value="Ranked">Ranked</option>
-									<option value="Qualified">Qualified</option>
-									<option value="Loved">Loved</option>
-									<option value="All Maps">All Maps</option>
-								</select>	
-                                 <h1>{{ vm.rankedStatus }}</h1>						
-							</div>
-						</div>
-						<!-- /RANKED STATUS --> 	
 
-						<!-- GAME MODE --> 
-						<div class="form-group">
-							<div class="col-md-4 col-sm-12">
-								<label for="mode" class="label-text">Game Mode</label>
-								<select class="form-control" ng-model="vm.gameMode">
-									<option value="osu!">osu!</option>
-									<option value="Taiko">Taiko</option>
-									<option value="CTB">CTB</option>
-									<option value="Mania">Mania</option>
-								</select>							
-							</div>
-						</div>	
-						<!-- /GAME MODE --> 
+			<div class="form-group center_div">
+				<div class="col-xs-4">
+					<label for="rankedStatus" class="main-header">Ranked Status</label>
+					<select class="form-control " id="rankedStatus" ng-model="vm.rankedStatus" ng-init="vm.rankedStatus='Ranked'">
+					<option value="Ranked">Ranked</option>
+					<option value="Qualified">Qualified</option>
+					<option value="Loved">Loved</option>
+					<option value="All Maps">All Maps</option>
+					</select>
+					<small id="rsHelp" class="form-text text-muted">Specify the ranked status.</small>
+				</div>
+			</div>
 
-					</div>
+			<div class="form-group center_div">
+				<div class="col-xs-4">
+					<label for="gameMode" class="main-header">Game Mode</label>
+					<select class="form-control" id="gameMode" ng-model="vm.gameMode" ng-init="vm.gameMode='osu!'">
+					<option value="osu!">osu!</option>
+					<option value="Taiko">Taiko</option>
+					<option value="Catch The Beat">Catch The Beat</option>
+					<option value="Mania">Mania</option>
+					</select>
+					<small id="gmHelp" class="form-text text-muted">Specify the Game Mode.</small>
+				</div>
+			</div>
+		</div>
 
-					<br/>
-					<!-- SUBMIT -->
-					<center>
-						<button class="btn btn-success">Search!</button>
-						<h6>Made w/ 🍆</h6>
-					</center>
-</form>                    
+		<div class="row">
+			<br/>
+		<center><button class="btn btn-success">Search For Beatmaps!</button></center>
+		</div>
+
+	</form>                
+</div>    
+
