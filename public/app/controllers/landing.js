@@ -1,17 +1,17 @@
 angular.module('eggplants')
     .controller('LandingController', LandingController);
 
-function LandingController($route, $routeParams, eggplantsFactory) {
+function LandingController($http, eggplantsFactory) {
 
     var vm = this;
 
+    // Get beatmaps upon first loading the page
     eggplantsFactory.getIniitalBeatmaps().then(function(response){
-        vm.initialBeatmaps = response;
-        console.log(vm.initialBeatmaps);
-    });
+        vm.initialBeatmaps = response.data.Sets;
+    })
 
 
-    // Grabs beatmaps based on user search query
+    // Grabs user queried beatmaps
     vm.getNewBeatmaps = function() {
 
         // Put form data into variables
@@ -66,13 +66,9 @@ function LandingController($route, $routeParams, eggplantsFactory) {
         console.log(apiRequest);
 
         // Finally, request the new beatmaps from the Ripple API
-        return $.getJSON(apiRequest)
-            .done(function(response){
-                console.log(response);
-            })
-            .catch(function(error){
-                console.log(error.statusText);
-            })
+        eggplantsFactory.getNewBeatmaps(apiRequest).then(function(response){
+            vm.newBeatmaps = response.data.Sets;
+        });
 
     }
 
