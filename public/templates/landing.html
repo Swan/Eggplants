@@ -4,6 +4,7 @@
 	<h4 class="cent">Enter in a search query, and choose your ranked status and game mode to begin.</h4>
 	<br/>
 
+	<!-- Success Message -->
 	<div ng-if="vm.newBeatmaps" class="col-lg-12">
 		<div class="alert alert-success" >	
   			<span ng-if="vm.newBeatmaps.length < 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}} beatmaps were found.</center></span>
@@ -11,6 +12,7 @@
 		</div>
 	</div>
 
+	<!-- Error Message -->
 	<div ng-if="vm.newBeatmapsData.Sets == null && vm.newBeatmapsData" class="col-lg-12">
 		<div class="alert alert-danger" >	
 			<center><strong>Alert!</strong> No beatmaps were found.</center>
@@ -54,7 +56,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="row">
 			<br/>
 		<center><button class="btn btn-success"><i class="fa fa-search"></i> Search For Beatmaps!</button></center>
@@ -98,7 +99,7 @@
 		</div>
 	</div>
 
-
+	<!-- Show new beatmaps -->
 	<div ng-if="vm.newBeatmaps">
 		<br/>
 		<div ng-repeat="beatmap in vm.newBeatmaps track by $index">
@@ -106,7 +107,7 @@
 				<div class="thumbnail">
 
 					<!-- Beatmap Image -->
-					<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank"><img class="thumb-img" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';"></a>
+					<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank"><img class="thumb-img" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.src='/images/default.jpg';"></a>
 					<div class="caption">
 						<!-- Song Title-->
 						<h4>{{beatmap.Artist | limitTo:10 }}<span ng-if="beatmap.Artist.length > 10">...</span> - {{beatmap.Title | limitTo:10 }}<span ng-if="beatmap.Title.length > 10">...</span></h4>
