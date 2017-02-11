@@ -51,8 +51,7 @@
 
 	<!-- Show Initial Beatmaps -->
 	<div ng-if="!vm.newBeatmaps">
-		<h1>{{ vm.initialBeatmaps[0].Artist }}</h1>
-
+		<br/>
 		<div ng-repeat="beatmap in vm.initialBeatmaps track by $index">
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="thumbnail">
