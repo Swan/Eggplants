@@ -48,7 +48,49 @@
 		</div>
 	</form>    
 
-	<h1>{{ vm.initialBeatmaps[0].Artist }}</h1>
+
+	<!-- Show Initial Beatmaps -->
+	<div ng-if="!vm.newBeatmaps">
+		<h1>{{ vm.initialBeatmaps[0].Artist }}</h1>
+
+		<div ng-repeat="beatmap in vm.initialBeatmaps track by $index">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="thumbnail">
+
+					<!-- Beatmap Image -->
+					<img class="thumb-img" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';">
+					<div class="caption">
+						<!-- Song Title-->
+						<h4>{{beatmap.Artist | limitTo:10 }}<span ng-if="beatmap.Artist.length > 10">...</span> - {{beatmap.Title | limitTo:10 }}<span ng-if="beatmap.Title.length > 10">...</span></h4>
+						<!-- Mapper & Beatmap statistics -->
+						<p><a href="http://osu.ppy.sh/u/{{beatmap.Creator}}">{{beatmap.Creator | limitTo:8}}</a><span ng-if="beatmap.Creator.length > 8">...</span>
+							<!-- Check if beatmap has video or not -->
+							<span ng-if="beatmap.HasVideo == false" class="badge pull-right" style="background-color: #d69508; margin-right: 10px;"><i class="fa fa-video-camera"></i> No Video</span>
+							<span ng-if="beatmap.HasVideo == true" class="badge pull-right" style="background-color: #188207; margin-right: 10px;"><i class="fa fa-video-camera"></i> Video</span>
+							<!-- Check if beatmap is ranked -->
+							<span ng-if="beatmap.RankedStatus == 1" class="badge pull-right" style="background-color: #2d9906; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Ranked</span>
+							<span ng-if="beatmap.RankedStatus == 4" class="badge pull-right" style="background-color: #c90e7b; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Loved</span>
+							<span ng-if="beatmap.RankedStatus == 3" class="badge pull-right" style="background-color: #d1bb1b; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Qualified</span>
+							<span ng-if="beatmap.RankedStatus != 1 || beatmap.RankedStatus != 4 || beatmap.RankedStatus != 3" class="badge pull-right" style="background-color: #2eb8d1; margin-right: 10px;"><i class="fa fa-thumbs-up"></i> Unranked</span>
+							<!-- Favourites -->
+							<span class="badge pull-right" style="background-color: #f972e7; margin-right: 10px;"><i class="fa fa-heart"></i> {{beatmap.Favourites}}</span> 								
+						</p>
+
+						<!-- Bottom Buttons-->
+						<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank" class="btn btn-default btn-xs pull-right" role="button"><i class="fa fa-download"></i></a> 
+						<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank" class="btn btn-info btn-xs" role="button">Download</a> 
+						<a href="http://osu.ppy.sh/s/{{beatmap.SetID}}" target="_blank" class="btn btn-default btn-xs" role="button">View on osu!</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	
+
+
+
+
 	<h1>{{ vm.newBeatmaps[0].Artist }}</h1>
 
 </div>    
