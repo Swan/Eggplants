@@ -11,6 +11,12 @@
 		</div>
 	</div>
 
+	<div ng-if="vm.newBeatmapsData.Sets == null && vm.newBeatmapsData" class="col-lg-12">
+		<div class="alert alert-danger" >	
+			<center><strong>Alert!</strong> No beatmaps were found.</center>
+		</div>
+	</div>
+
 	<form name="getNewBeatmaps" ng-submit="vm.getNewBeatmaps()">
 		<div class="row">
 			<div class="form-group center_div">
@@ -57,7 +63,7 @@
 
 
 	<!-- Show Initial Beatmaps -->
-	<div ng-if="!vm.newBeatmaps">
+	<div ng-if="!vm.newBeatmaps && !vm.newBeatmapsData">
 		<br/>
 		<div ng-repeat="beatmap in vm.initialBeatmaps track by $index">
 			<div class="col-xs-12 col-sm-4 col-md-4">

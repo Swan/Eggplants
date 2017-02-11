@@ -68,6 +68,7 @@ function LandingController($http, eggplantsFactory) {
         // Finally, request the new beatmaps from the Ripple API
         eggplantsFactory.getNewBeatmaps(apiRequest).then(function(response){
             vm.newBeatmaps = response.data.Sets;
+            vm.newBeatmapsData = response.data;
         });
 
     }
