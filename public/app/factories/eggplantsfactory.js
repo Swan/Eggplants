@@ -12,7 +12,7 @@ function eggplantsFactory($http) {
 
     // On page load, it will automaitcally grab the first listed beatmaps from the Ripple API
     function getIniitalBeatmaps() {
-       return $http.get('http://storage.ripple.moe/api/search?amount=100').then(complete).catch(failed);
+       return $http.get('https://storage.ripple.moe/api/search?amount=100').then(complete).catch(failed);
     }
 
     // When the user submits the search form, this will get new beatmaps from the Ripple API

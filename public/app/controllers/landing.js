@@ -56,7 +56,7 @@ function LandingController($http, eggplantsFactory) {
         }                                  
 
         // Build API request string
-        var apiRequest = 'http://storage.ripple.moe/api/search?query=' + searchQuery + '&mode=' + modeNumber + "&amount=100"; 
+        var apiRequest = 'https://storage.ripple.moe/api/search?query=' + searchQuery + '&mode=' + modeNumber + "&amount=100"; 
 
         // Append to string it they've chosen a ranked status - If they haven't it'll grab all of them
         if (rankedStatusNumber != null) {
