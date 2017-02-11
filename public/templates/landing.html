@@ -4,6 +4,13 @@
 	<h4 class="cent">Enter in a search query, and choose your ranked status and game mode to begin.</h4>
 	<br/>
 
+	<div ng-if="vm.newBeatmaps" class="col-lg-12">
+		<div class="alert alert-success" >	
+  			<span ng-if="vm.newBeatmaps.length < 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}} beatmaps were found.</center></span>
+			  <span ng-if="vm.newBeatmaps.length >= 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}}+ beatmaps were found.</center></span>
+		</div>
+	</div>
+
 	<form name="getNewBeatmaps" ng-submit="vm.getNewBeatmaps()">
 		<div class="row">
 			<div class="form-group center_div">
@@ -57,7 +64,7 @@
 				<div class="thumbnail">
 
 					<!-- Beatmap Image -->
-					<img class="thumb-img" style="width: 900px; height: 100px;" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';">
+					<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank"><img class="thumb-img" style="width: 900px; height: 100px;" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';"></a>
 					<div class="caption">
 						<!-- Song Title-->
 						<h4>{{beatmap.Artist | limitTo:10 }}<span ng-if="beatmap.Artist.length > 10">...</span> - {{beatmap.Title | limitTo:10 }}<span ng-if="beatmap.Title.length > 10">...</span></h4>
@@ -93,7 +100,7 @@
 				<div class="thumbnail">
 
 					<!-- Beatmap Image -->
-					<img class="thumb-img" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';">
+					<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank"><img class="thumb-img" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';"></a>
 					<div class="caption">
 						<!-- Song Title-->
 						<h4>{{beatmap.Artist | limitTo:10 }}<span ng-if="beatmap.Artist.length > 10">...</span> - {{beatmap.Title | limitTo:10 }}<span ng-if="beatmap.Title.length > 10">...</span></h4>
