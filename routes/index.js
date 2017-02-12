@@ -18,7 +18,13 @@ router
     .route('/')
     .post(eggplants.direct);
     
+router
+    .route('/api/getInitialBeatmaps')
+    .get(eggplants.getInitialBeatmaps);  
           
+router
+    .route('/api/getNewBeatmaps/:search/:rankedStatus/:mode')
+    .get(eggplants.getNewBeatmaps);          
 
 
 module.exports = router;

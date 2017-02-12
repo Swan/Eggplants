@@ -141,6 +141,48 @@ eggplants.direct = function(req, res, next) {
 }
 
 
+// Return Ripple's API call response when going to /api/getInitialBeatmaps
+eggplants.getInitialBeatmaps = function(req, res) {
+
+    request('https://storage.ripple.moe/api/search?amount=100', function(error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            var data = JSON.parse(body);
+            res.json(data.Sets);
+        }
+
+    });
+}
+
+
+// Get search query information from LandingController & return Ripple's API response
+eggplants.getNewBeatmaps = function(req, res) {
+
+
+    var search = req.params.search;
+    var mode = req.params.mode;
+    var rankedStatus = req.params.rankedStatus;
+    
+    var apiRequest = 'https://storage.ripple.moe/api/search?query=' + search + '&mode=' + mode + "&amount=100"; 
+
+    if (rankedStatus != 'null') {
+        apiRequest = apiRequest.concat("&status=" + rankedStatus);
+    }
+
+    console.log(apiRequest);
+    
+    request(apiRequest, function(error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            var data = JSON.parse(body);
+            res.json(data);
+        }
+
+    });
+
+
+};
+
 // --- HELPER FUNCTIONS ---
 
 // If beatmap could not be downloaded
