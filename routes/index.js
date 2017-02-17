@@ -18,11 +18,11 @@ router
     .route('/')
     .post(eggplants.direct);
     
-<<<<<<< HEAD
+
 router.get('*', function(req, res){
     res.redirect('/')
 })          
-=======
+
 router
     .route('/api/getInitialBeatmaps')
     .get(eggplants.getInitialBeatmaps);  
@@ -34,7 +34,7 @@ router
 router.get('*', function(req, res){
     res.redirect('/');
 })    
->>>>>>> cb9eb50f7a95190a5242464a501432e4f8df4eaf
+
 
 
 module.exports = router;
