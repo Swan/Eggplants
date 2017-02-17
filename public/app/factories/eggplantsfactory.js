@@ -17,7 +17,7 @@ function eggplantsFactory($http) {
 
     return $http.jsonp(url).then(function(response){
         console.log(response);
-    })
+    });
     //    return $http.get('http://storage.ripple.moe/api/search?amount=100').then(complete).catch(failed);
 
        return $http.get('/api/getInitialBeatmaps').then(complete).catch(failed);
