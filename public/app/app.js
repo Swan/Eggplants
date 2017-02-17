@@ -3,7 +3,7 @@ angular.module('eggplants', ['ngRoute'])
 
 
 // Route Configuration
-function config($routeProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
+function config($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/', {
@@ -20,9 +20,4 @@ function config($routeProvider, $locationProvider, $httpProvider, $sceDelegatePr
     // Remove #! from URL
     $locationProvider.html5Mode(true);
 
-    $httpProvider.defaults.useXDomain = true;
-
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];    
-
-    $sceDelegateProvider.resourceUrlWhitelist(['**']);
 }    

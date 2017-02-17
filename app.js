@@ -33,7 +33,6 @@ var bodyParser = require('body-parser');
 
 // Cors
  var cors = require('cors');
- app.use(cors())
 
 // Setting Port
 app.set('port', 8080);
@@ -55,18 +54,11 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Use cors
+app.use(cors({origin: 'http://localhost:8888'}));
 
 // Use Routes
 app.use(indexRoutes);
-
-    app.all('/*', function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        res.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
-        console.log("Hello")
-        next();
-    });
-
 
 // Start server
 var server = app.listen(app.get('port'), function(){
