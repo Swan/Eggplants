@@ -74,3 +74,12 @@ body {
     width: 500px;
     height: 250px;
 }
+
+.thumby {
+    background-color: #252525;
+    border: 1px solid #000;
+}
+
+.thumby-caption {
+    color: #C2C2C2;
+}

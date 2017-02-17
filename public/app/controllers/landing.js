@@ -7,7 +7,7 @@ function LandingController($http, eggplantsFactory) {
 
     // Get beatmaps upon first loading the page
     eggplantsFactory.getIniitalBeatmaps().then(function(response){
-        vm.initialBeatmaps = response.data.Sets;
+        vm.initialBeatmaps = response.data;
     })
 
 
@@ -55,22 +55,13 @@ function LandingController($http, eggplantsFactory) {
                 break;               
         }                                  
 
-        // Build API request string
-        var apiRequest = 'https://storage.ripple.moe/api/search?query=' + searchQuery + '&mode=' + modeNumber + "&amount=100"; 
 
-        // Append to string it they've chosen a ranked status - If they haven't it'll grab all of them
-        if (rankedStatusNumber != null) {
-            apiRequest = apiRequest.concat("&status=" + rankedStatusNumber);
-        }
-        
-        console.log(apiRequest);
-
-        // Finally, request the new beatmaps from the Ripple API
-        eggplantsFactory.getNewBeatmaps(apiRequest).then(function(response){
+        // Get new beatmaps from API
+        eggplantsFactory.getNewBeatmaps(searchQuery, rankedStatusNumber, modeNumber).then(function(response){
             vm.newBeatmaps = response.data.Sets;
             vm.newBeatmapsData = response.data;
         });
-
+        
     }
 
     
