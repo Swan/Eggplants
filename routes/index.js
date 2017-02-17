@@ -18,7 +18,9 @@ router
     .route('/')
     .post(eggplants.direct);
     
-          
+router.get('*', function(req, res){
+    res.redirect('/')
+})          
 
 
 module.exports = router;
