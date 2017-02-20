@@ -2,6 +2,9 @@
 	<br/>
 	<h2 class="cent"><i class="fa fa-search"></i> Search For Beatmaps</h2>
 	<h4 class="cent">Enter in a search query, and choose your ranked status and game mode to begin.</h4>
+	<h4 class="cent">You can also create sharable beatmap links by using:<h4>
+	<h5 class="cent">- https://eggplants.org/s/:id<h5>
+	<h5 class="cent">- https://eggplants.org/b/:id<h5>
 	<br/>
 
 	<!-- Success Message -->
@@ -18,13 +21,6 @@
 			<center><strong>Alert!</strong> No beatmaps were found.</center>
 		</div>
 	</div>
-
-	<div ng-if="!vm.newBeatmaps && !vm.newBeatmapsData" class="col-lg-12">
-		<div class="alert alert-info" >	
-			<center><strong>Did You Know?</strong><br/> You can create shareable beatmap links by using: <br/><strong>- http://eggplants.org/s/:id<br/>- http://eggplants.org/b/:id</strong></center>
-		</div>
-	</div>	
-
 
 	<form name="getNewBeatmaps" ng-submit="vm.getNewBeatmaps()">
 		<div class="row">
