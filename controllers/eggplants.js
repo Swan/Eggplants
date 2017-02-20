@@ -144,7 +144,7 @@ eggplants.direct = function(req, res, next) {
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
 eggplants.getInitialBeatmaps = function(req, res) {
 
-    request('https://storage.ripple.moe/api/search?amount=100', function(error, response, body) {
+    request('https://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
 
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
