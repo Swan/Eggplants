@@ -82,4 +82,6 @@ body {
 
 .thumby-caption {
     color: #C2C2C2;
+  white-space: nowrap;
+  overflow: hidden;    
 }
