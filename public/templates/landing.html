@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
 	<br/>
 	<h2 class="cent"><i class="fa fa-search"></i> Search For Beatmaps</h2>
 	<h4 class="cent">Enter in a search query, and choose your ranked status and game mode to begin.</h4>
 	<br/>
 
 	<!-- Success Message -->
-	<div ng-if="vm.newBeatmaps" class="col-lg-12">
+	<div ng-if="vm.newBeatmaps" class="col-lg-4">
 		<div class="alert alert-success" >	
   			<span ng-if="vm.newBeatmaps.length < 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}} beatmaps were found.</center></span>
 			  <span ng-if="vm.newBeatmaps.length >= 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}}+ beatmaps were found.</center></span>
@@ -74,7 +74,7 @@
 	<div ng-if="!vm.newBeatmaps && !vm.newBeatmapsData">
 		<br/>
 		<div ng-repeat="beatmap in vm.initialBeatmaps track by $index">
-			<div class="col-xs-12 col-sm-4 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-3">
 				<div class="thumbnail thumby">
 
 					<!-- Beatmap Image -->
