@@ -81,7 +81,7 @@
 					<a href="http://storage.ripple.moe/{{beatmap.SetID}}.osz" target="_blank"><img class="thumb-img" style="width: 900px; height: 100px;" ng-src="https://assets.ppy.sh//beatmaps/{{beatmap.SetID}}/covers/cover.jpg?1486129185" onerror="this.onerror=null;this.src='/images/default.jpg';"></a>
 					<div class="caption">
 						<!-- Song Title-->
-						<h4 class="thumby-caption">{{beatmap.Artist | limitTo:10 }}<span ng-if="beatmap.Artist.length > 10">...</span> - {{beatmap.Title | limitTo:10 }}<span ng-if="beatmap.Title.length > 10">...</span></h4>
+						<h4 class="thumby-caption">{{beatmap.Artist | limitTo:15 }}<span ng-if="beatmap.Artist.length > 15">...</span> - {{beatmap.Title | limitTo:15 }}<span ng-if="beatmap.Title.length > 15">...</span></h4>
 						<!-- Mapper & Beatmap statistics -->
 						<p><a href="http://osu.ppy.sh/u/{{beatmap.Creator}}">{{beatmap.Creator | limitTo:9}}</a><span ng-if="beatmap.Creator.length > 9">...</span>
 							<!-- Check if beatmap has video or not -->
