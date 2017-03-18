@@ -63,23 +63,29 @@ function LandingController($http, eggplantsFactory) {
         // Get new beatmaps from API
         eggplantsFactory.getNewBeatmaps(searchQuery, rankedStatusNumber, modeNumber).then(function(response){
 
+            // For Danger Message
+            if (response.data.Sets == null) {
+                vm.newBeatmaps = [];
+                return;
+            }
+
+            // Give results back only with specified mania keys
             if (modeNumber == 3) {
                 beatmaps = [];
                 response.data.Sets.forEach((beatmap) => {
+                    // TODO: Loop over each difficulty and check if the keycount matches
                     if (beatmap.ChildrenBeatmaps2[0].CS == keyCount) {
-                        beatmaps = beatmaps.concat(beatmap);
-                        
+                        beatmaps = beatmaps.concat(beatmap);              
                     }        
                 });
 
-                console.log(beatmaps)
-
                 vm.newBeatmaps = beatmaps;
-
+            
+            // If not mania, just return all the results.
             } else {
                 vm.newBeatmaps = response.data.Sets;
+                console.log(vm.newBeatmaps)
             }
-            
         });
         
     }
