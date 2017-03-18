@@ -18,6 +18,8 @@ function LandingController($http, eggplantsFactory) {
         var searchQuery = vm.search;
         var rankedStatus = vm.rankedStatus;
         var gameMode = vm.gameMode;
+        var keyCount = vm.keyCount;
+        console.log(keyCount);
 
         // Match the form's ranked status to the Ripple APi's.
         var rankedStatusNumber;
@@ -56,10 +58,28 @@ function LandingController($http, eggplantsFactory) {
         }                                  
 
 
+        
+
         // Get new beatmaps from API
         eggplantsFactory.getNewBeatmaps(searchQuery, rankedStatusNumber, modeNumber).then(function(response){
-            vm.newBeatmaps = response.data.Sets;
-            vm.newBeatmapsData = response.data;
+
+            if (modeNumber == 3) {
+                beatmaps = [];
+                response.data.Sets.forEach((beatmap) => {
+                    if (beatmap.ChildrenBeatmaps2[0].CS == keyCount) {
+                        beatmaps = beatmaps.concat(beatmap);
+                        
+                    }        
+                });
+
+                console.log(beatmaps)
+
+                vm.newBeatmaps = beatmaps;
+
+            } else {
+                vm.newBeatmaps = response.data.Sets;
+            }
+            
         });
         
     }

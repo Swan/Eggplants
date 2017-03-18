@@ -8,7 +8,7 @@
 	<br/>
 
 	<!-- Success Message -->
-	<div ng-if="vm.newBeatmaps" class="col-lg-12">
+	<div ng-if="vm.newBeatmaps && vm.newBeatmaps != 0" class="col-lg-12">
 		<div class="alert alert-success" >	
   			<span ng-if="vm.newBeatmaps.length < 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}} beatmaps were found.</center></span>
 			  <span ng-if="vm.newBeatmaps.length >= 100"><center><strong>Success!</strong> {{vm.newBeatmaps.length}}+ beatmaps were found.</center></span>
@@ -16,7 +16,7 @@
 	</div>
 
 	<!-- Error Message -->
-	<div ng-if="vm.newBeatmapsData.Sets == null && vm.newBeatmapsData" class="col-lg-12">
+	<div ng-if="vm.newBeatmaps == 0" class="col-lg-12">
 		<div class="alert alert-danger" >	
 			<center><strong>Alert!</strong> No beatmaps were found.</center>
 		</div>
@@ -59,6 +59,33 @@
 				</div>
 			</div>
 		</div>
+		<div ng-show="vm.gameMode == 'Mania'">
+			<br/>
+
+			<div class="row">
+				<div class="col-xs-4"></div>
+
+				<div class="col-xs-4">
+					<label for="keyCount" class="main-header"><i class="fa fa-keyboard-o"></i> Key Count</label>
+					<select class="form-control" id="keyCount" ng-model="vm.keyCount" ng-init="vm.keyCount='4'">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>																		
+					</select>
+					<small id="gmHelp" class="form-text text-muted">Specify the amount of keys.</small>
+				</div>
+
+				<div class="col-xs-4"></div>
+			</div>		
+		</div>
+
 		<div class="row">
 			<br/>
 		<center><button class="btn btn-success"><i class="fa fa-search"></i> Search For Beatmaps!</button></center>
