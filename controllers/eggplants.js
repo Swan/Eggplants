@@ -101,7 +101,7 @@ eggplants.direct = function(req, res, next) {
                 // Download Beatmap
                 if (!error && response.statusCode == 200) {
                     console.log("FOUND / BeatmapSetId - " + beatmapSetId + " on Ripple's API")
-                    res.redirect("https://storage.ripple.moe/" + beatmapSetId + ".osz");
+                    res.redirect("http://storage.ripple.moe/" + beatmapSetId + ".osz");
                 } else {
                     showJsonError(req, res);
                 }
@@ -127,7 +127,7 @@ eggplants.direct = function(req, res, next) {
                     var data = JSON.parse(body);
                     var beatmapSetId = data.ParentSetID;
                     console.log("FOUND / BeatmapSetId - " + beatmapSetId + " on Ripple's API");
-                    res.redirect("https://storage.ripple.moe/" + beatmapSetId + ".osz");
+                    res.redirect("http://storage.ripple.moe/" + beatmapSetId + ".osz");
 
                 } else {
                     showJsonError(req, res);
