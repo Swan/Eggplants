@@ -74,9 +74,18 @@ function LandingController($http, eggplantsFactory) {
                 beatmaps = [];
                 response.data.Sets.forEach((beatmap) => {
                     // TODO: Loop over each difficulty and check if the keycount matches
-                    if (beatmap.ChildrenBeatmaps2[0].CS == keyCount) {
-                        beatmaps = beatmaps.concat(beatmap);              
-                    }        
+                    try {
+                        for (var i = 0; i <= beatmap.ChildrenBeatmaps2.length; i++) {
+                            console.log(beatmap.ChildrenBeatmaps2[i]);
+                            if (beatmap.ChildrenBeatmaps2[i].Mode == 3 && beatmap.ChildrenBeatmaps2[i].CS == keyCount) {
+                                beatmaps = beatmaps.concat(beatmap);
+                                break;
+                            }
+                        }   
+                    } catch (e) {
+                        console.log(e);
+                    }
+  
                 });
 
                 vm.newBeatmaps = beatmaps;
@@ -84,7 +93,6 @@ function LandingController($http, eggplantsFactory) {
             // If not mania, just return all the results.
             } else {
                 vm.newBeatmaps = response.data.Sets;
-                console.log(vm.newBeatmaps)
             }
         });
         
