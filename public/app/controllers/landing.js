@@ -73,7 +73,6 @@ function LandingController($http, eggplantsFactory) {
             if (modeNumber == 3) {
                 beatmaps = [];
                 response.data.Sets.forEach((beatmap) => {
-                    // TODO: Loop over each difficulty and check if the keycount matches
                     try {
                         for (var i = 0; i <= beatmap.ChildrenBeatmaps2.length; i++) {
                             console.log(beatmap.ChildrenBeatmaps2[i]);
@@ -85,7 +84,6 @@ function LandingController($http, eggplantsFactory) {
                     } catch (e) {
                         console.log(e);
                     }
-  
                 });
 
                 vm.newBeatmaps = beatmaps;
