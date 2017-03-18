@@ -144,7 +144,7 @@ eggplants.direct = function(req, res, next) {
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
 eggplants.getInitialBeatmaps = function(req, res) {
 
-    request('https://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
+    request('http://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
 
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
@@ -163,7 +163,7 @@ eggplants.getNewBeatmaps = function(req, res) {
     var mode = req.params.mode;
     var rankedStatus = req.params.rankedStatus;
     
-    var apiRequest = 'https://storage.ripple.moe/api/search?query=' + search + '&mode=' + mode + "&amount=100"; 
+    var apiRequest = 'http://storage.ripple.moe/api/search?query=' + search + '&mode=' + mode + "&amount=100"; 
 
     if (rankedStatus != 'null') {
         apiRequest = apiRequest.concat("&status=" + rankedStatus);
