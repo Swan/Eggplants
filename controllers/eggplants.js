@@ -1,59 +1,12 @@
-// Beatmap Link Criteria
-var direct = require('../config/direct.json');
-
-// Request package
-var request = require('request');
-
-// Create Empty Eggplants Object
-var eggplants = {};
+const possibleLinks = require('../config/possiblelinks.json');
+const request = require('request');
 
 
-// Downloading beatmaps directly with eggplants.org/s/:id 
-eggplants.setIdDownload = function(req, res, next) {
 
-    // Grab BeatmapSetId From Link Param
-   var beatmapSetId = req.params.id;
-
-   // Check if map exists on ripple & download it if it does
-   request ("http://storage.ripple.moe/s/" + beatmapSetId, function(error, response, body){
-       
-       if (!error && response.statusCode == 200) {
-            downloadBeatmap(req, res, beatmapSetId);
-       } else {
-            showJsonError(req, res);
-       }
-
-   });
-
-}
-
-
-// Download beatmaps directly with eggplants.org/b/:id
-eggplants.beatmapIdDownload = function(req, res, next) {
-    // Grab Beatmap Link by Itself
-    var beatmapId = req.params.id;
-
-    // Request to osu! API
-    request ("http://storage.ripple.moe/b/" + beatmapId, function(error, response, body){
-
-        if (!error & response.statusCode == 200) {
-
-            // Grab Set ID
-            var data = JSON.parse(body);
-            var beatmapSetId = data['ParentSetID'];
-
-            // Download
-            downloadBeatmap(req, res, beatmapSetId);
-
-        } else {
-            showJsonError(req, res);
-        }
-    }); 
-};
 
 
 // Direct Beatmap Downloads
-eggplants.direct = function(req, res, next) {
+module.exports.direct = function(req, res, next) {
 
     var beatmap = req.body.beatmap;
     var isValidLink;
@@ -142,7 +95,7 @@ eggplants.direct = function(req, res, next) {
 
 
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
-eggplants.getInitialBeatmaps = function(req, res) {
+module.exports.getInitialBeatmaps = function(req, res) {
 
     request('http://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
 
@@ -156,7 +109,7 @@ eggplants.getInitialBeatmaps = function(req, res) {
 
 
 // Get search query information from LandingController & return Ripple's API response
-eggplants.getNewBeatmaps = function(req, res) {
+module.exports.getNewBeatmaps = function(req, res) {
 
 
     var search = req.params.search;
@@ -183,30 +136,7 @@ eggplants.getNewBeatmaps = function(req, res) {
 
 };
 
-// --- HELPER FUNCTIONS ---
-
-// If beatmap could not be downloaded
-function showJsonError(req, res) {
-     res
-        .status(404)
-        .json({
-            status: 404,
-            error: "The beatmap you are trying to download could not be found."
-        });
-}
-
-// If invalid direct link
-function jsonNotValidLink(req, res) {
-    res
-        .status(404)
-        .json({status: 404, error: "The link you have entered is not valid."})   
-}
-
-// Download Beatmap
-function downloadBeatmap (req, res, beatmapSetId) {
-    res.redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
-}
 
 
-// Export
-module.exports = eggplants;
+
+
