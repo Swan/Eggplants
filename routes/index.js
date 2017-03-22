@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const eggplants = require('../controllers/eggplants.js');
 const shareableLinks = require('../controllers/shareablelinks.js');
+const direct = require('../controllers/direct.js');
 
 
-router.get('/', eggplants.direct);
+router.post('/', direct.download);
 router.get('/s/:setId', shareableLinks.setIdDownload);
 router.get('/b/:beatmapId', shareableLinks.beatmapIdDownload);
 

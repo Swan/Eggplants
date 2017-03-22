@@ -1,3 +1,5 @@
+const express = require('express');
+
 // If beatmap could not be downloaded
 module.exports.showJsonError = (req, res) => {
      res
@@ -15,7 +17,7 @@ module.exports.jsonNotValidLink = (req, res) => {
         .json({status: 404, error: "The link you have entered is not valid."})   
 }
 
-// Download Beatmap
+
 module.exports.downloadBeatmap = (req, res, beatmapSetId) => {
     res.redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
 }
