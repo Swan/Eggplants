@@ -84,6 +84,7 @@ function LandingController($http, eggplantsFactory) {
                     } catch (e) {
                         console.log(e);
                     }
+  
                 });
 
                 vm.newBeatmaps = beatmaps;
