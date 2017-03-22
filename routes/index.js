@@ -1,35 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const eggplants = require('../controllers/eggplants.js');
 
-var eggplants = require('../controllers/eggplants.js');
 
-// Downloading via /s/ links
-router
-    .route('/s/:id')
-    .get(eggplants.setIdDownload);
+router.get('/', eggplants.direct);
+router.get('/s/:id', eggplants.setIdDownload);
+router.get('/b/:id', eggplants.beatmapIdDownload);
 
-// Download via /b/ links
-router
-    .route('/b/:id')
-    .get(eggplants.beatmapIdDownload);
+  
+/*
+ *  API Routes - Used for rendering the JSON from Ripple's API to get beatmaps
+ */    
+router.get('/api/getInitialBeatmaps', eggplants.getInitialBeatmaps);
+router.get('/api/getNewBeatmaps/:search/:rankedStatus/:mode', eggplants.getNewBeatmaps);
 
-// Root
-router
-    .route('/')
-    .post(eggplants.direct);
-    
-router
-    .route('/api/getInitialBeatmaps')
-    .get(eggplants.getInitialBeatmaps);  
           
-router
-    .route('/api/getNewBeatmaps/:search/:rankedStatus/:mode')
-    .get(eggplants.getNewBeatmaps);          
-
-router.get('*', function(req, res){
-    res.redirect('/');
-})    
-
+router.get('*', (req, res) => { res.redirect('/'); })  
 
 module.exports = router;
 

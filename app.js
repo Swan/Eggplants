@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const indexRoutes = require('./routes/index');
+const landingRoutes = require('./routes/index');
 
 const logger = require('morgan');
 app.use(logger('dev'));
@@ -15,7 +15,7 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(indexRoutes);
+app.use(landingRoutes);;
 
 const server = app.listen(app.get('port'), function(){
     const port = server.address().port;
