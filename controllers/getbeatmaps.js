@@ -2,19 +2,13 @@ const possibleLinks = require('../config/possiblelinks.json');
 const request = require('request');
 
 
-
-
-
-
-
-
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
 module.exports.getInitialBeatmaps = function(req, res) {
 
     request('http://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
 
         if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
+            let data = JSON.parse(body);
             res.json(data.Sets);
         }
 
@@ -26,17 +20,17 @@ module.exports.getInitialBeatmaps = function(req, res) {
 module.exports.getNewBeatmaps = function(req, res) {
 
 
-    var search = req.params.search;
-    var mode = req.params.mode;
-    var rankedStatus = req.params.rankedStatus;
+    let search = req.params.search;
+    let mode = req.params.mode;
+    let rankedStatus = req.params.rankedStatus;
     
-    var apiRequest = 'http://storage.ripple.moe/api/search?query=' + search + '&mode=' + mode + "&amount=100"; 
+    let apiRequest = 'http://storage.ripple.moe/api/search?query=' + search + '&mode=' + mode + "&amount=100"; 
 
     if (rankedStatus != 'null') {
         apiRequest = apiRequest.concat("&status=" + rankedStatus);
     }
 
-    console.log(apiRequest);
+    console.log("User has searched: " + search + " with ranked status: " + rankedStatus + " and mode: " + mode);
     
     request(apiRequest, function(error, response, body) {
 
