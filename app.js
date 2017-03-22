@@ -4,6 +4,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const indexRoutes = require('./routes/index');
 
+const logger = require('morgan');
+app.use(logger('dev'));
+
 app.set('port', 8080);
 
 app.use(express.static(__dirname + "/public"));
