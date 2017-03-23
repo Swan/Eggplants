@@ -1,6 +1,6 @@
 const possibleLinks = require('../config/possiblelinks.json');
 const request = require('request');
-const helperFunctions = require('../util/helperfunctions.js');
+const helperFunctions = require('./util/helperfunctions.js');
 
 
 // Direct Beatmap Downloads

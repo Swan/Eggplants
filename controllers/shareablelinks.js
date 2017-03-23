@@ -1,5 +1,5 @@
 const request = require('request');
-const helperFunctions = require('../util/helperfunctions.js');
+const helperFunctions = require('./util/helperfunctions.js');
 
 // Downloading beatmaps directly with eggplants.org/s/:id 
 module.exports.setIdDownload = function(req, res, next) {
