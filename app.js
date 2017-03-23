@@ -10,6 +10,7 @@ app.use(logger('dev'));
 app.set('port', 8080);
 
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/Angular"));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -35,11 +35,11 @@
 			<div class="form-group center_div">
 				<div class="col-xs-4">
 					<label for="rankedStatus" class="main-header"><i class="fa fa-star"></i> Ranked Status</label>
-					<select class="form-control " id="rankedStatus" ng-model="vm.rankedStatus" ng-init="vm.rankedStatus='Ranked'">
-					<option value="Ranked">Ranked</option>
-					<option value="Qualified">Qualified</option>
-					<option value="Loved">Loved</option>
-					<option value="All Maps">All Maps</option>
+					<select class="form-control " id="rankedStatus" ng-model="vm.rankedStatus" ng-init="vm.rankedStatus='1'">
+					<option value="1">Ranked</option>
+					<option value="3">Qualified</option>
+					<option value="4">Loved</option>
+					<option value="null">All Maps</option>
 					</select>
 					<small id="rsHelp" class="form-text text-muted">Specify the ranked status.</small>
 				</div>
@@ -48,17 +48,17 @@
 			<div class="form-group center_div">
 				<div class="col-xs-4">
 					<label for="gameMode" class="main-header"><i class="fa fa-gamepad"></i> Game Mode</label>
-					<select class="form-control" id="gameMode" ng-model="vm.gameMode" ng-init="vm.gameMode='osu!'">
-					<option value="osu!">osu!</option>
-					<option value="Taiko">Taiko</option>
-					<option value="Catch The Beat">Catch The Beat</option>
-					<option value="Mania">Mania</option>
+					<select class="form-control" id="gameMode" ng-model="vm.gameMode" ng-init="vm.gameMode='0'">
+					<option value="0">osu!</option>
+					<option value="1">Taiko</option>
+					<option value="2">Catch The Beat</option>
+					<option value="3">Mania</option>
 					</select>
 					<small id="gmHelp" class="form-text text-muted">Specify the Game Mode.</small>
 				</div>
 			</div>
 		</div>
-		<div ng-show="vm.gameMode == 'Mania'">
+		<div ng-show="vm.gameMode == '3'">
 			<br/>
 
 			<div class="row">

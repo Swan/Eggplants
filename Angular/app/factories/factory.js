@@ -1,8 +1,7 @@
-angular.module('eggplants').factory('eggplantsFactory', eggplantsFactory);
+angular.module('eggplants').factory('factory', factory);
 
 
-// In the event that we do have a databse and we need to have the front-end communicate with the backend.
-function eggplantsFactory($http) {
+function factory($http) {
 
     return {
         getIniitalBeatmaps: getIniitalBeatmaps,
@@ -10,23 +9,25 @@ function eggplantsFactory($http) {
     };
 
 
-    // On page load, it will automaitcally grab the first listed beatmaps from the Ripple API
+     /*
+      * @description: Upon page load, it goes and gets a list of initial beatmaps to display.
+      */   
     function getIniitalBeatmaps() {
        return $http.get('/api/getInitialBeatmaps').then(complete).catch(failed);
     }
 
-    // When the user submits the search form, this will get new beatmaps from the Ripple API
+     /*
+      * @description: Goes and gets the Ripple API JSON response from the /api/getNewBeatmaps/:search/:rankedStatus/:mode route
+      */   
     function getNewBeatmaps(search, rankedStatus, mode) {
         return $http.get('/api/getNewBeatmaps/' + search + "/" + rankedStatus + "/" + mode).then(complete).catch(failed);
     }
 
-    // Success
     function complete(response) {
         console.log(response);
         return response;
     }
 
-    // Catch
     function failed(error) {
         console.log(error.statusText);
     }    
