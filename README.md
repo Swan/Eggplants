@@ -3,7 +3,6 @@ https://eggplants.org
 
 Eggplants is an open-source website that serves as an alternative to downloading osu! beatmaps. Whether it be the user is not logged into the osu! site, or is on another server and doesn't have access to direct - They can still download beatmaps.
 
-A more in depth readme will be added later once the migration from v1 to v2 is complete.
 
 # LICENSE 
 
