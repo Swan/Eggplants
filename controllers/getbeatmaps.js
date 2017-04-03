@@ -3,7 +3,7 @@ const request = require('request');
 
 
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
-module.exports.getInitialBeatmaps = function(req, res) {
+let getInitialBeatmaps = (req, res) => {
 
     request('http://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
 
@@ -17,7 +17,7 @@ module.exports.getInitialBeatmaps = function(req, res) {
 
 
 // Get search query information from LandingController & return Ripple's API response
-module.exports.getNewBeatmaps = function(req, res) {
+let getNewBeatmaps = (req, res) => {
 
 
     let search = req.params.search;
@@ -43,6 +43,11 @@ module.exports.getNewBeatmaps = function(req, res) {
 
 
 };
+
+module.exports = {
+    getInitialBeatmaps,
+    getNewBeatmaps
+}
 
 
 

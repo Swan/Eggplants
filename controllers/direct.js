@@ -1,17 +1,17 @@
 const possibleLinks = require('../config/possiblelinks.json');
 const request = require('request');
-const helperFunctions = require('./util/helperfunctions.js');
+const {showJsonError, jsonNotValidLink, downloadBeatmap} = require('./utils/helperfunctions');
 
 
 // Direct Beatmap Downloads
-module.exports.download = function(req, res, next) {
+let directDownload = (req, res, next) => {
 
     let beatmap = req.body.beatmap;
 
     // First things first, find if the beatmap link is actually valid. (see: possiblelinks.json)
     let isValidLink = checkValidLink(beatmap);
     if (!isValidLink) 
-        return helperFunctions.jsonNotValidLink(req, res);
+        return jsonNotValidLink(req, res);
 
     // Remove mode identifer from URL
     if (beatmap.includes("&")) 
@@ -28,10 +28,10 @@ module.exports.download = function(req, res, next) {
         let beatmapSetId = beatmap.substring(beatmap.indexOf("s/") + 2);
 
         if (beatmapSetId == "" || isNaN(beatmapSetId) || beatmapSetId.includes(' ')) 
-                helperFunctions.jsonNotValidLink(req, res);   
+                jsonNotValidLink(req, res);   
 
         request("http://storage.ripple.moe/s/" + beatmapSetId, function(error, response, body){
-            (!error && response.statusCode == 200) ? helperFunctions.downloadBeatmap(req, res, beatmapSetId) : helperFunctions.showJsonError(req, res);    
+            (!error && response.statusCode == 200) ? downloadBeatmap(req, res, beatmapSetId) : showJsonError(req, res);    
         });
 
     } 
@@ -47,17 +47,17 @@ module.exports.download = function(req, res, next) {
         let beatmapId = beatmap.substring(beatmap.indexOf("b/") + 2);
 
         if (beatmapId == "" || isNaN(beatmapId) || beatmapId.includes(' ')) 
-                helperFunctions.jsonNotValidLink(req, res);                    
+                jsonNotValidLink(req, res);                    
             
         request("http://storage.ripple.moe/b/" + beatmapId, function(error, response, body){
 
             if (!error && response.statusCode == 200) {
 
                 let data = JSON.parse(body);
-                helperFunctions.downloadBeatmap(req, res, data.ParentSetID);
+                downloadBeatmap(req, res, data.ParentSetID);
 
             } else {
-                helperFunctions.showJsonError(req, res);
+                showJsonError(req, res);
             }                
 
         });
@@ -72,3 +72,7 @@ function checkValidLink(beatmap) {
         if (beatmap.includes(possibleLinks.criteria[i])) { return true; } 
     }
 }
+
+module.exports = {
+    directDownload
+};
