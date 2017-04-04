@@ -10,14 +10,6 @@ let showJsonError = (req, res) => {
         });
 }
 
-// If invalid direct link
-let jsonNotValidLink = (req, res) => {
-    res
-        .status(404)
-        .json({status: 404, error: "The link you have entered is not valid."})   
-}
-
-
 let downloadBeatmap = (req, res, beatmapSetId) => {
     res.redirect('http://storage.ripple.moe/' + beatmapSetId + ".osz");
 }
@@ -25,6 +17,5 @@ let downloadBeatmap = (req, res, beatmapSetId) => {
 
 module.exports = {
     showJsonError,
-    jsonNotValidLink,
     downloadBeatmap
 };

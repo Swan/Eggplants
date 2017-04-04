@@ -1,18 +1,18 @@
 const possibleLinks = require('../config/possiblelinks.json');
-const request = require('request');
-
+const axios = require('axios');
 
 // Return Ripple's API call response when going to /api/getInitialBeatmaps
 let getInitialBeatmaps = (req, res) => {
 
-    request('http://storage.ripple.moe/api/search?amount=100&status=1', function(error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            let data = JSON.parse(body);
-            res.json(data.Sets);
-        }
-
-    });
+    axios.get('http://storage.ripple.moe/api/search?amount=100&status=1')
+        .then((response) => {
+            res.json(response.data.Sets);
+        })
+        .catch((err) => {
+            res
+                .status(400)
+                .json({status: 400, error: "Bad request, please tell this to a developer."});
+        });
 }
 
 
@@ -32,16 +32,17 @@ let getNewBeatmaps = (req, res) => {
 
     console.log("User has searched: " + search + " with ranked status: " + rankedStatus + " and mode: " + mode);
     
-    request(apiRequest, function(error, response, body) {
 
-        if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
-            res.json(data);
-        }
-
-    });
-
-
+    axios.get(apiRequest)
+        .then((response) => {
+            res.json(response.data)
+        })
+        .catch((err) => {
+            res
+                .status(400)
+                .json({status: 400, error: "Bad request, please tell this to a developer."})
+        });
+        
 };
 
 module.exports = {

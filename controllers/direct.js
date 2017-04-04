@@ -1,6 +1,6 @@
 const possibleLinks = require('../config/possiblelinks.json');
-const request = require('request');
-const {showJsonError, jsonNotValidLink, downloadBeatmap} = require('./utils/helperfunctions');
+const axios = require('axios');
+const {showJsonError, downloadBeatmap} = require('./utils/helperfunctions');
 
 
 // Direct Beatmap Downloads
@@ -11,7 +11,7 @@ let directDownload = (req, res, next) => {
     // First things first, find if the beatmap link is actually valid. (see: possiblelinks.json)
     let isValidLink = checkValidLink(beatmap);
     if (!isValidLink) 
-        return jsonNotValidLink(req, res);
+        return showJsonError(req, res);
 
     // Remove mode identifer from URL
     if (beatmap.includes("&")) 
@@ -28,11 +28,15 @@ let directDownload = (req, res, next) => {
         let beatmapSetId = beatmap.substring(beatmap.indexOf("s/") + 2);
 
         if (beatmapSetId == "" || isNaN(beatmapSetId) || beatmapSetId.includes(' ')) 
-                jsonNotValidLink(req, res);   
+                showJsonError(req, res);   
 
-        request("http://storage.ripple.moe/s/" + beatmapSetId, function(error, response, body){
-            (!error && response.statusCode == 200) ? downloadBeatmap(req, res, beatmapSetId) : showJsonError(req, res);    
-        });
+        axios.get('http://storage.ripple.moe/s/' + beatmapSetId)
+            .then((response) => {
+                downloadBeatmap(req, res, beatmapSetId);
+            })
+            .catch((error)  => {
+                showJsonError(req, res);
+            });
 
     } 
 
@@ -47,26 +51,25 @@ let directDownload = (req, res, next) => {
         let beatmapId = beatmap.substring(beatmap.indexOf("b/") + 2);
 
         if (beatmapId == "" || isNaN(beatmapId) || beatmapId.includes(' ')) 
-                jsonNotValidLink(req, res);                    
-            
-        request("http://storage.ripple.moe/b/" + beatmapId, function(error, response, body){
+                showJsonError(req, res);     
 
-            if (!error && response.statusCode == 200) {
 
-                let data = JSON.parse(body);
+        axios.get('https://storage.ripple.moe/b/' + beatmapId)
+            .then((response) => {
+                let data = response.data;
                 downloadBeatmap(req, res, data.ParentSetID);
-
-            } else {
+            })
+            .catch((error) => {
+                console.log(error);
                 showJsonError(req, res);
-            }                
-
-        });
+            });
+        
     }
 
 }
 
 
-function checkValidLink(beatmap) {
+let checkValidLink = beatmap => {
      // Check if beatmap link meets the possibleLinks criteria
     for (let i=0; i < possibleLinks.criteria.length; i++) {
         if (beatmap.includes(possibleLinks.criteria[i])) { return true; } 
