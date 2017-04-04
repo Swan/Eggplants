@@ -62,6 +62,11 @@ function LandingController($http, factory) {
                 });
 
                 /*
+                 * Shift exact match results to the beginning of the array if possible.
+                 */
+                beatmaps = searchMatch(beatmaps, searchQuery);
+
+                /*
                 * Return the new beatmaps array
                 */
                 vm.newBeatmaps = beatmaps;
@@ -69,10 +74,38 @@ function LandingController($http, factory) {
              * If the game mode isn't mania, just return all the results.
              */           
             } else {
-                vm.newBeatmaps = response.data.Sets;
+                let beatmaps = searchMatch(response.data.Sets, searchQuery);
+                vm.newBeatmaps = beatmaps;
             }
         });      
     }
+
+    
+    function searchMatch (beatmaps, searchQuery) {
+
+        let matchedBeatmaps = [];
+        let unmatchedBeatmaps = [];
+        let newBeatmaps = [];
+
+        beatmaps.forEach((beatmap) => {
+       
+            if (beatmap.Title.toLowerCase().includes(searchQuery.toString().toLowerCase()) || 
+                beatmap.Artist.toLowerCase().includes(searchQuery.toString().toLowerCase()) || 
+                beatmap.Creator.toLowerCase().includes(searchQuery.toString().toLowerCase())) {
+                matchedBeatmaps.push(beatmap);
+            } else {
+                unmatchedBeatmaps.push(beatmap);
+            }
+
+        });
+
+        newBeatmaps = newBeatmaps.concat(matchedBeatmaps);
+        newBeatmaps = newBeatmaps.concat(unmatchedBeatmaps);
+
+        return newBeatmaps;
+
+    }   
+
 
   
 }    

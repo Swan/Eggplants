@@ -11,6 +11,11 @@ function config($routeProvider, $locationProvider) {
             controller: LandingController,
             controllerAs: 'vm'
         })
+        .when('/test', {
+            templateUrl: '/templates/landing.html',
+            controller: LandingController,
+            controllerAs: 'vm'
+        })        
         .otherwise({
             templateUrl: '/templates/landing.html',
             controller: LandingController,
