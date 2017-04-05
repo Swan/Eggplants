@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const landingRoutes = require('./routes/index');
+const db = require('./db/db.js');
 
 const logger = require('morgan');
 app.use(logger('dev'));
