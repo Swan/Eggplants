@@ -16,7 +16,14 @@ router.get('/b/:beatmapId', beatmapIdDownload);
 router.get('/api/getInitialBeatmaps', getInitialBeatmaps);
 router.get('/api/getNewBeatmaps/:search/:rankedStatus/:mode', getNewBeatmaps);
 
-          
+
+/*
+ *   Login/Sign Up Routes
+ */
+router.post('/login', (req, res) => {
+    res.json({username: req.body.username, password: req.body.password});
+});
+
 router.get('*', (req, res) => { res.redirect('/'); })  
 
 module.exports = router;

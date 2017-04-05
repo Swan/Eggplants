@@ -40,6 +40,7 @@
                             <li class="active"><a href="http://osu.ppy.sh/" target="_blank"><i class="fa fa-music"></i> osu!</a></li>
                             <li class="active"><a href="https://github.com/Swan/Eggplants" target="_blank"><i class="fa fa-github"></i> Github</a></li>
                             <li class="active"><a href="http://twitter.com/ImagineSwan" target="_blank"><i class="fa fa-twitter"></i> Contact</a></li>
+                            <li class="active"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i> Log In</a></li>
                         </ul>
                         <form action="/" class="navbar-form navbar-left search-form" method="POST" role="search">
 
@@ -52,6 +53,39 @@
                 </div>
             </nav>
         </div>
+
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <center><h4 class="modal-title"><i class="fa fa-sign-in"></i> Log Into Your Account</h4></center>
+
+                    </div>
+                    <div class="modal-body">
+                        <center><p>Please log in with your credentials.</p></center>
+                        <center>
+                            <form action="/login" class="navbar-form search-form" method="POST" role="search">
+
+                                    <input type="text" class="form-control input-sm" placeholder="Username" name="username" id="username" required/><br/><br/>
+                                    <input type="password" class="form-control input-sm" placeholder="Password" name="password" id="password" required/><br/><br/>
+                                    <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log In</button>
+
+                            </form>
+                        </center>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>   
+
 
         <div class="cover">
             <div class="container">
