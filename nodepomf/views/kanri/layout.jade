@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .header
+    .container
+      .row
+        | Kanri (管理)
+        |  | 
+        a(href='/kanri/stream') stream
+        |  | 
+        a(href='/kanri/users') users
+        |  | #{user.username} (
+        a(href='/kanri/logout') logout
+        | )
+  block ui

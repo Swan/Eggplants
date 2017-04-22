@@ -1,0 +1,268 @@
+html {
+    height: 100%;
+}
+body {
+    background-image: url('../images/cream_dust.png');
+    animation-duration: 0.2s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+}
+#nojs-upload-button {
+  margin-right: 1em;
+}
+#nojs-upload-button > input {
+  line-height: 1.6;
+}
+#upload-button {
+    margin-bottom: 2em;
+}
+.title {
+    margin-bottom: -5px;
+}
+.summary {
+    margin-top: 10%;
+}
+.toolinfo{
+    margin-top: 0px;
+}
+.links {
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+.header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #4A4A4A;
+    text-align: center;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #AAA;
+}
+.footer {
+    margin-top: 25px;
+    color: #AAA;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.hidden {
+    display:none;
+}
+.preview img {
+    border-radius: 4px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+}
+.preview {
+    margin-right: 10px;
+}
+.error {
+    color: #f00;
+}
+.progress-outer {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #FFF;
+    border-radius: 6px;
+    box-shadow: 0px 0px 0px 1px #000;
+    color: transparent;
+    display: inline-block;
+    font-size: 0px;
+    float: right;
+    height: 10px;
+    margin: 6px 6px 0px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 50px;
+}
+.progress-inner {
+    background-color: #000;
+    height: 10px;
+    margin: 0px;
+    width: 0px;
+}
+.login_splash {
+    width: 100%;
+    height: auto;
+}
+.load_mask {
+    text-align: center;
+}
+input.view {
+    height: 22px;
+    text-align: right;
+    width: 60%;
+    margin-bottom: 0rem;
+}
+input.view:disabled {
+    background-color: #DDD;
+}
+button.apply {
+    height: 22px;
+    line-height: 24px;
+    margin-left: 6px;
+    margin-bottom: 0rem;
+    width: calc(40% - 6px);
+}
+button.apply[state=success] {
+    border-color: lime;
+    color: lime;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+}
+#users > .row {
+    border-top: 1px solid #DDD;
+}
+button.rename {
+    margin-left: 6px;
+}
+button.delete {
+    margin-left: 6px;
+    background-color: #FF5454;
+    color: #FFF;
+}
+em.originalname {
+    max-width: calc(100% - 520px);
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#age-selector {
+    width: 100%;
+    text-align: right;
+}
+button[disabled] {
+    background-color: #DDD;
+}
+button[disabled]:hover {
+    border-color: red;
+}
+button.sign_in {
+    width: 100%;
+    height: 50px;
+    border: none;
+    font-size: 0px;
+}
+button.sign_in.google {
+    background: url("../images/sign_in_google.png") no-repeat center top;
+    background-size: contain;
+}
+button.sign_in.google:active {
+    background: url("../images/sign_in_google_pressed.png") no-repeat center top;
+    background-size: contain;
+}
+button.sign_in.pixiv {
+    background: url("../images/sign_in_pixiv.png") no-repeat center top;
+    background-size: contain;
+}
+button.sign_in.pixiv:active {
+    background: url("../images/sign_in_pixiv_pressed.png") no-repeat center top;
+    background-size: contain;
+}
+button.sign_in.github {
+    background: url("../images/sign_in_github.png") no-repeat center top;
+    background-size: contain;
+}
+button.sign_in.github:active {
+    background: url("../images/sign_in_github_pressed.png") no-repeat center top;
+    background-size: contain;
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="text"],
+select {
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 730px) {
+  .button,
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  input[type="text"],
+  select {
+    min-width: 100%;
+  }
+  em.originalname {
+    max-width: calc(100% - 80px);
+  }
+  button.apply {
+    margin-left: 0px;
+  }
+}
+
+/*
+CSS Folding Cube animation
+*/
+.loader {
+  display: inline-block;
+  margin: 5px;
+  padding: 1px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border: 1px solid #888;
+  top: 50%;
+  animation: loader 4s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #444;
+  animation: loader-inner 4s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(-45deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  75% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

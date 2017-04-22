@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    // Basic Page Needs
+    meta(charset='utf-8')  
+    title=title
+    // Mobile Specific Metas
+    meta(name='viewport', content='height=device-height, width=device-width, initial-scale=1')
+    // Fonts
+    link(href='//fonts.googleapis.com/css?family=Raleway:400,300,600', rel='stylesheet', type='text/css')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    // CSS
+    link(href='/stylesheets/normalize.css', rel='stylesheet')
+    link(href='/stylesheets/skeleton.css', rel='stylesheet')
+    link(href='/stylesheets/custom.css', rel='stylesheet')
+    // Favicon
+    link(href='/images/favicon.png', rel='icon', type='image/png')
+    style(type='text/css').
+      @media (min-width: 730px) {
+        body {
+          background: url(#{grill}), url('/images/cream_dust.png');
+          background-size: 35vh, auto;
+          background-position: 85% 100%, top left;
+          background-repeat: no-repeat, repeat;
+          background-attachment: fixed;
+        }
+      }
+      .hidden {
+          display:none;
+      }
+    block head
+  body
+    block content
+    
+    // Footer block
+    .footer
+      .container
+        .row
+          a(href='/') home
+          |  | 
+          a(href='/nojs') nojs
+          |  | 
+          a(href='/tools') tools
+          |  | 
+          a(href='/faq') faq
+          |  | 
+          a(href='/contact') contact
+          |  | 
+          a(href='https://github.com/maxpowa/npomf') source

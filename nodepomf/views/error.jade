@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container.summary
+    .row
+      //if error.status === 404
+        //img(src='/images/404.jpg')
+      //else
+      h3= message
+      h5= status
+      if error && error.stack
+        pre #{error.stack}
