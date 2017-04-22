@@ -10,7 +10,7 @@ All of the code in this repository is licensed under the MIT license.
 
 Which basically means you can do what ever your heart desires with this source.
 
-See the "LICENSE" file for more information.
+See the [LICENSE](https://github.com/Swan/Eggplants/blob/master/LICENSE) file for more information.
 
 
 
