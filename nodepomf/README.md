@@ -1,4 +1,7 @@
 # NodePomf
+
+I personally did not develop this - this is the open-sourced [Nodepomf](https://github.com/maxpowa/nodepomf), therefore all credit goes to [maxpowa](https://github.com/maxpowa)!
+
 NodeJS rewrite of [nokonoko/Pomf](https://github.com/nokonoko/Pomf/).
 
 # Install
