@@ -18,7 +18,7 @@ config.TAGLINE = "Passami una melanzana~!";
 // Main URL (User-facing)
 // config.URL = 'http://my.domain.is.moe';
 // Used to have trailing / but trailing / is no longer supported.
-config.URL = 'http://the.eggplants.org';
+config.URL = 'http://juicy.eggplants.org';
 // URL to access uploaded files
 // Different from URL if you're serving uploaded files from a different subdomain
 // If you serve from a different directory/subdomain this app won't be able
@@ -26,7 +26,7 @@ config.URL = 'http://the.eggplants.org';
 // for generating links to uploaded files.
 // config.FILE_URL = 'http://a.my.domain.is.moe';
 // Also used to have a trailing / but shouldn't any more!
-config.FILE_URL = 'http://the.eggplants.org';
+config.FILE_URL = 'http://juicy.eggplants.org';
 
 // Only open to localhost, you can should put this behind nginx or similar
 // config.IFACES = '0.0.0.0'; // Open to all interfaces (Not running behind nginx)
