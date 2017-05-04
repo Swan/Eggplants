@@ -1,0 +1,28 @@
+<nav class="navbar navbar-findcond navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+</button>
+      <a class="navbar-brand" href="#">🍆 EGGPLANTS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active"><a href="https://juicy.eggplants.org" target="_blank"><i class="fa fa-upload"></i> File Hosting</a></li>        
+        <li class="active"><a href="https://osu.ppy.sh/" target="_blank"><i class="fa fa-music"></i> osu!</a></li>
+        <li class="active"><a href="https://github.com/Eggplants/Eggplants" target="_blank"><i class="fa fa-github"></i> Source</a></li>      
+        <li class="active"><a href="mailto:contact@swan.moe" target="_blank"><i class="fa fa-envelope"></i> Contact</a></li>
+      </ul>
+
+      <!-- Direct -->
+      <form [formGroup]="directForm" (ngSubmit)="onSubmit(beatmap.value)" class="navbar-form navbar-left search-form" role="search">
+        <input class="form-control input-sm" #beatmap placeholder="Enter a beatmap link" formControlName="beatmap" #beatmap name="beatmap" type="text" required>
+        <button class="btn btn-purple btn-sm" [disabled]="!beatmap"><i class="fa fa-download"></i> Direct Download</button> <span class="notfound" *ngIf="downloadSuccess == false && formSubmitted">Invalid Link!</span>
+      </form>
+    </div>
+  </div>
+</nav>

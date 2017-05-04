@@ -1,0 +1,113 @@
+<div class="search">
+
+  <br/><br/>
+  <h2 class="cent"><i class="fa fa-search"></i> Search For Beatmaps</h2>
+  <h4 class="cent">Enter in a search query, and choose your ranked status and game mode to begin.</h4>
+  <h4 class="cent">You can also create shareable beatmap links by using:</h4>
+  <h5 class="cent">- https://eggplants.org/s/:id</h5>
+  <h5 class="cent">- https://eggplants.org/b/:id</h5>
+
+  <br/>
+
+  <div *ngIf="searched">
+    <div *ngIf="(beatmapListService.currentBeatmaps | async)?.length >=1">
+        <div class="wrapper container-fluid">
+            <div class="row">
+              <div class="center_div">
+                  <div class="alert-message alert-message-success centa">
+                      <h4>{{(beatmapListService.currentBeatmaps | async)?.length || '...'}} Beatmap(s) have been found!</h4>
+                      <p>Congratulations! you've found some beatmaps, now you're free to download <strong>as many</strong> you wish!</p>
+                      <p>If you'd like to see and/or request features, you can view or open issues <a href="https://github.com/Eggplants/Eggplants/issues" target="_blank">here 🍆</a></p>
+                  </div>
+            </div> 
+          </div>
+        </div>   
+    </div>
+
+  </div>
+
+  <br/>
+
+  <!-- Search Form -->
+  <div class="container-fluid">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <!-- Search Query -->
+      <div class="row">
+        <div class="form-group center_div">
+          <div class="col-xs-4">
+            <label for="searchQuery" class="main-header"><i class="fa fa-wrench"></i> Search Query</label>
+            <input class="form-control" id="searchQuery" aria-describedby="emailHelp" placeholder="Search for a beatmap" required=""
+              type="text" formControlName="searchQuery">
+            <small class="form-text text-muted">You can search an artist, song title, or even mapper.</small>
+          </div>
+        </div>
+
+        <!-- Ranked Status -->
+        <div class="form-group center_div">
+          <div class="col-xs-4">
+            <label for="rankedStatus" class="main-header"><i class="fa fa-star"></i> Ranked Status</label>
+            <select class="form-control" id="rankedStatus" formControlName="rankedStatus">
+              <option value="1" selected="selected">Ranked</option>
+              <option value="3">Qualified</option>
+              <option value="4">Loved</option>
+              <option value="null">All Maps</option>
+            </select>
+            <small class="form-text text-muted">Specify the ranked status.</small>
+          </div>
+        </div>
+
+        <!-- Game Mode -->
+        <div class="form-group center_div">
+          <div class="col-xs-4">
+            <label for="gameMode" class="main-header"><i class="fa fa-gamepad"></i> Game Mode</label>
+            <select class="form-control" id="gameMode" [(ngModel)]="mode" name="mode" formControlName="gameMode">
+              <option value="0" selected="selected">osu!</option>
+              <option value="1">Taiko</option>
+              <option value="2">Catch The Beat</option>
+              <option value="3">Mania</option>
+            </select>
+            <small class="form-text text-muted">Specify the Game Mode.</small>
+          </div>  
+        </div> 
+      </div>
+
+      <!-- Mania Keys --> 
+      <div *ngIf="mode == 3">
+        <br/>
+        <div class="row">    
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4">
+            <label for="keyCount" class="main-header"><i class="fa fa-keyboard-o"></i> Key Count</label>
+            <select class="form-control" id="keyCount" formControlName="keys">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected="selected">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <small id="gmHelp" class="form-text text-muted">Playing mania? Specify the amount of keys.</small>
+          </div>
+          <div class="col-xs-4"></div>
+        </div>
+      </div>
+
+      <br/>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button class="btn btn-success center-button" [disabled]="!searchForm.valid"><i class="fa fa-search"></i> Search For Beatmaps!</button>
+        <br/>
+        <small class="form-text text-muted">Made with 🍆</small>
+      </div>
+      <br/>
+    </form>
+  </div>
+</div>
+
+
+<app-beatmap-list></app-beatmap-list>

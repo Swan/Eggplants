@@ -1,18 +1,6 @@
-# Eggplants 🍆
-https://eggplants.org
+# Eggplants
 
-Eggplants is an open-source website that serves as an alternative to downloading osu! beatmaps. Whether it be the user is not logged into the osu! site, or is on another server and doesn't have access to direct - They can still download beatmaps.
+An alternative beatmap listing website for osu!
 
-
-# LICENSE 
-
-All of the code in this repository is licensed under the MIT license.
-
-Which basically means you can do what ever your heart desires with this source.
-
-See the [LICENSE](https://github.com/Swan/Eggplants/blob/master/LICENSE) file for more information.
-
-
-
-
-
+This branch is the upcoming [Eggplants](https://eggplants.org) website written using Angular 4 that will replace the current one which uses AngularJS.
+I am aiming for this version to be faster, modular, and packed with loads of new features. yea
