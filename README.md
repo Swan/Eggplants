@@ -1,6 +1,6 @@
 # Eggplants
 
-[Eggplants](https://eggplants.org) is an alternative beatmap listing website for osu!
+🍆 [Eggplants](https://eggplants.org) is an alternative beatmap listing website for osu!
 
 # Features
 Currently, Eggplants has some pretty useful features including: 
