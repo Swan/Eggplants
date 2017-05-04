@@ -20,7 +20,7 @@
             <div *ngIf="beatmap.HasVideo"><span class="badge pull-right has-video"><i class="fa fa-video-camera"></i> Video</span></div>
 
             <!-- Ranked Status? -->
-            <div *ngIf="beatmap.RankedStatus == -1 || beatmap.RankedStatus == -2"><span class="badge pull-right loved"><i class="fa fa-thumbs-up"></i> Unranked</span></div>            
+            <div *ngIf="beatmap.RankedStatus == -1 || beatmap.RankedStatus == -2 || beatmap.RankedStatus == 0"><span class="badge pull-right loved"><i class="fa fa-thumbs-up"></i> Unranked</span></div>            
             <div *ngIf="beatmap.RankedStatus == 1"><span class="badge pull-right ranked"><i class="fa fa-thumbs-up"></i> Ranked</span></div>
             <div *ngIf="beatmap.RankedStatus == 3"><span class="badge pull-right qualified"><i class="fa fa-thumbs-up"></i> Qualified</span></div>          
             <div *ngIf="beatmap.RankedStatus == 4"><span class="badge pull-right loved"><i class="fa fa-thumbs-up"></i> Loved</span></div>
