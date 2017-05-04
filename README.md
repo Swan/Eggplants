@@ -1,6 +1,6 @@
-# Eggplants
+# Eggplants 🍆
 
-🍆 [Eggplants](https://eggplants.org) is an alternative beatmap listing website for osu!
+This repository is the source code that currently runs [Eggplants](https://eggplants.org). In short, Eggplants is an alternative beatmap listing website for osu!, started in January, 2017.
 
 # Features
 Currently, Eggplants has some pretty useful features including: 
