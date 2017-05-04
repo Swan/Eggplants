@@ -2,11 +2,13 @@
 
 [Eggplants](https://eggplants.org) is an alternative beatmap listing website for osu!
 
+# Features
 Currently, Eggplants has some pretty useful features including: 
 * Searching for beatmaps
 * Creating shareable beatmap links
 * Directly downloading beatmaps with osu! beatmap links
 
+# Setup
 To run your own instance of Eggplants locally: 
 * You'll need the [Angular CLI](https://cli.angular.io/).
 * Install the dependencies with `npm i`
