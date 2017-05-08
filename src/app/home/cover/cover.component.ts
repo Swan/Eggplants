@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoverComponent implements OnInit {
 
-  constructor() { }
+  coverImgNum: number;
+
+  constructor() { 
+    this.coverImgNum = Math.floor((Math.random() * 5) + 1);
+    console.log(this.coverImgNum);
+  }
 
   ngOnInit() {
+
   }
 
 }
