@@ -10,12 +10,14 @@ export class BeatmapListService {
   constructor(private http: Http) { }
 
   public currentBeatmaps: Observable<object[]>;
+  public foundBeatmaps = false;
   public offset: string = '0';
 
   // Responsible for grabbing the initial beatmaps from endpoint: /api/getinitialbeatmaps - Returns 100 ranked osu! beatmaps
   getInitialBeatmaps(): Observable<object[]> {
     return this.http.get('/api/getinitialbeatmaps')
       .map((res: Response) => {
+        this.foundBeatmaps = true;
         console.log(res.json());
         return res.json(); 
       })
@@ -25,6 +27,7 @@ export class BeatmapListService {
   getNewBeatmaps(searchQuery: string, gameMode: string, rankedStatus: string, keys: string, offset: string): Observable<object[]> {
     return this.http.get(`/api/search?query=${searchQuery}&mode=${gameMode}&status=${rankedStatus}&offset=${offset}&keys=${keys}`)
       .map((res: Response) => {
+          this.foundBeatmaps = true;
           console.log(res.json());
           return res.json();     
       })

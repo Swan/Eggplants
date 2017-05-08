@@ -37,7 +37,8 @@ export class SearchComponent implements OnInit {
   // Gets the data from the form and sets the new currentBeatmaps
   onSubmit() {
     this.searched = true;
-
+    this.beatmapListService.foundBeatmaps = false;
+    
     const gameMode: string = this.searchForm.value.gameMode;
     const keys: string = this.searchForm.value.keys;
     const rankedStatus: string = this.searchForm.value.rankedStatus;

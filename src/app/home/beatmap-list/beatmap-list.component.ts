@@ -26,4 +26,5 @@ export class BeatmapListComponent implements OnInit {
   getImg(beatmapSetID: string): string {
     return `https://assets.ppy.sh//beatmaps/${beatmapSetID}/covers/cover.jpg?1486129185`;
   }
+  
 }

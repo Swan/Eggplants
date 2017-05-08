@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <div *ngIf="!beatmapListService.foundBeatmaps" class="loader"></div>
   <div *ngFor="let beatmap of beatmapListService.currentBeatmaps | async">
     <div class="col-xs-12 col-sm-12 col-lg-3">
       <div class="thumbnail thumby">
