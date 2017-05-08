@@ -19,8 +19,11 @@ export class BeatmapListComponent implements OnInit {
   }
 
   // Responsible for grabbing the initial beatmaps from the server. See: BeatmapListSerivce.getInitialBeatmaps();
-  getBeatmapsOnLoad() {
+  getBeatmapsOnLoad(): any {
     return this.beatmapListService.getInitialBeatmaps();
   }
 
+  getImg(beatmapSetID: string): string {
+    return `https://assets.ppy.sh//beatmaps/${beatmapSetID}/covers/cover.jpg?1486129185`;
+  }
 }
