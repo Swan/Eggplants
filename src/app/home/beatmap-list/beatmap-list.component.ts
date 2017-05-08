@@ -12,7 +12,7 @@ import { BeatmapListService } from './beatmap-list.service';
 })
 export class BeatmapListComponent implements OnInit {
 
-  constructor(private beatmapListService: BeatmapListService) { }
+  constructor(private beatmapListService: BeatmapListService) {}
 
   ngOnInit(): any {
     this.beatmapListService.setNewBeatmaps(this.beatmapListService.getInitialBeatmaps());
