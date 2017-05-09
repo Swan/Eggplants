@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://juicy.eggplants.org/pqmwxh.png">
+<a href="https://eggplants.org"><img src="https://juicy.eggplants.org/pqmwxh.png"></a>
 </p>
 
 # Eggplants 🍆
