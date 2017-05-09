@@ -1,7 +1,8 @@
-# Eggplants 🍆
 <p align="center">
   <img src="https://juicy.eggplants.org/pqmwxh.png">
 </p>
+
+# Eggplants 🍆
 
 This repository is the source code that **currently** runs [Eggplants](https://eggplants.org). In short, Eggplants is an alternative beatmap listing website for osu!, started in **January, 2017**. It was originally created because at the time [Ripple](https://ripple.moe), an osu! private server, did not have any type of beatmap listing, and searching direct wasn't too hot. The goal for Eggplants is to not only provide users with a **better option for osu! players** to download beatmaps using the **same mirror and API**, but to give users a way to **quickly download beatmaps and share them with their friends**. 
 
