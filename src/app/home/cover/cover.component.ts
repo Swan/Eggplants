@@ -10,7 +10,7 @@ export class CoverComponent implements OnInit {
   coverImgNum: number;
 
   constructor() { 
-    this.coverImgNum = Math.floor((Math.random() * 8) + 1);
+    this.coverImgNum = Math.floor((Math.random() * 6) + 1);
     console.log(this.coverImgNum);
   }
 
