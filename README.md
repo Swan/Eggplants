@@ -12,6 +12,7 @@ Currently, Eggplants has some pretty useful features including:
 * Searching for beatmaps
 * Creating shareable beatmap links
 * Directly downloading beatmaps with osu! beatmap links
+* [Juicy](https://juicy.eggplants.org) - Free File Hosting Service
 
 # Setup
 To run your own instance of Eggplants locally: 
