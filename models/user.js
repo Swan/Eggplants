@@ -21,7 +21,7 @@ const validator = require('validator');
     }
 */
 
-const EgguserSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -75,4 +75,4 @@ const EgguserSchema = mongoose.Schema({
     }]  
 });
 
-module.exports = mongoose.model("Egguser", EgguserSchema);
+module.exports = mongoose.model("User", userSchema);
