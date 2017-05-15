@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const index = require('./routes/index');
 
+const db = require('./db/db');
+
 const app = express();
 
 // Parsers for POST data
