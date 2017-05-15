@@ -43,3 +43,6 @@ Thumbs.db
 
 # Config
 /config/config.json
+
+# Playground
+/playground
