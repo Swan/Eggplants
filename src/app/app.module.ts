@@ -14,6 +14,8 @@ import { BeatmapListComponent } from './home/beatmap-list/beatmap-list.component
 
 import { DirectService } from './nav/direct.service';
 import { BeatmapListService } from './home/beatmap-list/beatmap-list.service';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BeatmapListService } from './home/beatmap-list/beatmap-list.service';
     HomeComponent,
     CoverComponent,
     SearchComponent,
-    BeatmapListComponent
+    BeatmapListComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
