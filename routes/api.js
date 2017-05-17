@@ -14,10 +14,10 @@ router.get('/', (req, res) => {
 
 /*
  * Gets the initial beatmaps upon first loading the page. This will get a list of ranked osu! standard beatmaps
- */ 
+ */
 router.get('/getinitialbeatmaps', getInitialBeatmaps);
 
-/* 
+/*
  * Gives the user the ability to search for new beatmaps
  * The user should specify a search query, ranked status, and game mode (also keys if selected mania).
  * Searches Ripple's API & returns the list of beatmaps in an organized fashion
@@ -33,6 +33,6 @@ router.get('/direct/b', directBeatmapId);
 /*
  * User
  */
- router.post('/users/new', createUser);
+router.post('/users/new', createUser);
 
 module.exports = router;

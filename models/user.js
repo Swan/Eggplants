@@ -1,25 +1,9 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const jwt = require('jsonwebtoken');
+const _ = require('lodash');
 
-/*
-    Sample Document
-    {   
-        username: Swan,
-        email: contact@swan.moe,
-        password: notapassword123,
-        privileges: 3,
-        tokens: [{
-            access: 'auth',
-            token: 'm9lka9bap1a2fa2o2j3dd0a02kak2'
-        }]
-        collections: [
-            {
-                name: "Vibro",
-                mapsets: [320118, 29182, 193330, 182731, 38910]
-            }
-        ]
-    }
-*/
+const config = require('../config/config.json');
 
 const userSchema = mongoose.Schema({
     username: {
@@ -72,7 +56,35 @@ const userSchema = mongoose.Schema({
             type: Number,
             required: false
         }]
-    }]  
+    }]
 });
+
+
+// Generates a jwt for the user
+userSchema.methods.generateAuthToken = function () {
+  let user = this;
+  let access = 'auth';
+  let token = jwt.sign({_id: user._id.toHexString(), access: access}, config.secret).toString();
+
+  user.tokens.push({
+    access,
+    token
+  });
+
+  return user.save().then((user) => {
+    return token;
+  }).catch((err) => {
+    console.log("Error generating auth token");
+  });
+};
+
+
+// Explicitly states wheat gets sent back to the user.
+userSchema.methods.toJSON = function () {
+  let user = this;
+  let userObject = user.toObject();
+
+  return _.pick(userObject, ['_id', 'username', 'email'])
+};
 
 module.exports = mongoose.model("User", userSchema);
