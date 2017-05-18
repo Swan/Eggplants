@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('express-jwt');
+const config = require('../config/config.json');
 
 const { getInitialBeatmaps } = require('../controllers/getinitialbeatmaps');
 const { search } = require('../controllers/search');
 const { directSetId, directBeatmapId } = require('../controllers/direct');
+const { userSettings } = require('../controllers/user/settings');
 const authentication = require('../controllers/user/authentication');
+
+let auth = jwt({
+    secret: config.JWT_SECRET,
+    userProperty: 'payload'
+});
 
 
 // :)
@@ -31,9 +39,15 @@ router.get('/direct/s', directSetId);
 router.get('/direct/b', directBeatmapId);
 
 /*
- * User
+ * User Registration & Login
  */
 router.post('/users/new', authentication.register);
 router.post('/users/login', authentication.login);
+
+/*
+ * User GET Routes
+ */
+router.get('/user/settings', auth, userSettings);
+
 
 module.exports = router;
