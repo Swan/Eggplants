@@ -1,4 +1,4 @@
 {
     "MONGODB_URI": "",
-    "secret": ""
+    "JWT_SECRET": ""
 }
