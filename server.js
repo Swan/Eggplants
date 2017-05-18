@@ -26,6 +26,11 @@ app.use(passport.initialize());
 app.use('/api', api);
 app.use('/', index);
 
+// Middleware
+app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') return res.status(401).json({status: 401, message: `${err.name} - ${err.message}`});
+});
+
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
