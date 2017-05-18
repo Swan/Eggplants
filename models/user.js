@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const crypto = require('crypto');
 
 const config = require('../config/config.json');
 
@@ -25,10 +26,13 @@ const userSchema = mongoose.Schema({
             msg: 'Invalid Email.'
         }]
     },
-    password: {
-        type: String,
-        required: true,
-        minlength: 6
+    hash: {
+      type: String,
+      required: true
+    },
+    salt: {
+      type: String,
+      required: true
     },
     tokens: [{
         access: {
@@ -60,22 +64,32 @@ const userSchema = mongoose.Schema({
 });
 
 
+// Encrypt user password and salt
+userSchema.methods.setPassword = function (password) {
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+};
+
+
+// Validate password
+userSchema.methods.validatePassword = function(password) {
+    let hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+    return this.hash === hash;
+};
+
+
 // Generates a jwt for the user
 userSchema.methods.generateAuthToken = function () {
-  let user = this;
-  let access = 'auth';
-  let token = jwt.sign({_id: user._id.toHexString(), access: access}, config.secret).toString();
+    let expiry = new Date();
+    expiry.setDate(expiry.getDate() + 7);
 
-  user.tokens.push({
-    access,
-    token
-  });
-
-  return user.save().then((user) => {
-    return token;
-  }).catch((err) => {
-    console.log("Error generating auth token");
-  });
+    return jwt.sign({
+        _id: this._id,
+        username: this.username,
+        email: this.email,
+        collections: this.collections,
+        exp: parseInt(expiry.getTime() / 1000)
+    }, config.JWT_SECRET);
 };
 
 
