@@ -34,5 +34,6 @@ router.get('/direct/b', directBeatmapId);
  * User
  */
 router.post('/users/new', authentication.register);
+router.post('/users/login', authentication.login);
 
 module.exports = router;

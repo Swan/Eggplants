@@ -29,11 +29,27 @@ module.exports.register = (req, res) => {
 
 };
 
+
 module.exports.login = (req, res) => {
-    console.log(`Logging in user: ${req.body.username}`);
-    res.status(200);
-    res.json({
-      status: 200,
-      message: `Successfully logged in user: ${req.body.username}`
-    });
+  // If somehow a username or email was never provided
+   if (!req.body.username && req.body.password)
+    return res.status(400).json({status: 400, error: "Both the username and email need to be provided"}); 
+
+  // Authenticate the user
+  passport.authenticate('local', (err, user, info) => {
+    let token;
+
+    // Error handling
+    if (err) return res.status(404).json(err);
+
+    // If a user is found, generate a JWT and return it
+    if (user) {
+      token = user.generateAuthToken();
+      return res.status(200).json({status: 200, token: token});
+    // If a user wasn't found
+    } else {
+      res.status(401).json(info);
+    }
+
+  })(req, res);
 };
