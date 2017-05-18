@@ -2,11 +2,13 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const api = require('./routes/api');
 const index = require('./routes/index');
 
-const db = require('./db/db');
+require('./db/db');
+require('./config/passport');
 
 const app = express();
 
@@ -16,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
+
+// Use Passport
+app.use(passport.initialize());
 
 // Set our api routes
 app.use('/api', api);
