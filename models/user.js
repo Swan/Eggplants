@@ -93,12 +93,4 @@ userSchema.methods.generateAuthToken = function () {
 };
 
 
-// Explicitly states wheat gets sent back to the user.
-userSchema.methods.toJSON = function () {
-  let user = this;
-  let userObject = user.toObject();
-
-  return _.pick(userObject, ['_id', 'username', 'email'])
-};
-
 module.exports = mongoose.model("User", userSchema);
