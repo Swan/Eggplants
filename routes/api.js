@@ -4,7 +4,7 @@ const router = express.Router();
 const { getInitialBeatmaps } = require('../controllers/getinitialbeatmaps');
 const { search } = require('../controllers/search');
 const { directSetId, directBeatmapId } = require('../controllers/direct');
-const { createUser } = require('../controllers/user/createuser');
+const authentication = require('../controllers/user/authentication');
 
 
 // :)
@@ -33,6 +33,6 @@ router.get('/direct/b', directBeatmapId);
 /*
  * User
  */
-router.post('/users/new', createUser);
+router.post('/users/new', authentication.register);
 
 module.exports = router;
