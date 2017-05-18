@@ -9,7 +9,8 @@ module.exports.userSettings = (req, res) => {
         // Return the user if they exist
         User.findById(req.payload._id)
             .exec((err, user) => {
-                if (err) return res.status(400).json({status: 500, message: "Bad Request"});
+                if (err) return res.status(400).json({status: 400, message: "Bad Request"});
+                if (!user) return res.status(404).json({status: 404, message: "User not found"});
                 return res.status(200).json(user);
             });  
 };
