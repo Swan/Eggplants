@@ -17,6 +17,7 @@ import { BeatmapListService } from './home/beatmap-list/beatmap-list.service';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     routing
   ],
-  providers: [DirectService, BeatmapListService, BeatmapListComponent, RegisterService],
+  providers: [DirectService, BeatmapListService, BeatmapListComponent, RegisterService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
