@@ -50,6 +50,12 @@ const userSchema = mongoose.Schema({
             type: Number,
             required: false
         }]
+    }],
+    favorites: [{
+        beatmapSetId: {
+            type: Number,
+            required: false
+        }
     }]
 });
 
