@@ -15,6 +15,7 @@ import { BeatmapListComponent } from './home/beatmap-list/beatmap-list.component
 import { DirectService } from './nav/direct.service';
 import { BeatmapListService } from './home/beatmap-list/beatmap-list.service';
 import { RegisterComponent } from './register/register.component';
+import { RegisterService } from './register/register.service';
 import { LoginComponent } from './login/login.component';
 
 
@@ -37,7 +38,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     routing
   ],
-  providers: [DirectService, BeatmapListService, BeatmapListComponent],
+  providers: [DirectService, BeatmapListService, BeatmapListComponent, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
