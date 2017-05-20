@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const APP_ROUTES: Routes = [
     // Home
     { path: '', component: HomeComponent, pathMatch: 'full' },
