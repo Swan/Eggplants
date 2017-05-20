@@ -78,6 +78,7 @@ userSchema.methods.generateAuthToken = function () {
         username: this.username,
         email: this.email,
         collections: this.collections,
+        privileges: this.privileges,
         exp: parseInt(expiry.getTime() / 1000)
     }, config.JWT_SECRET);
 };
