@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http'; 
 import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LoginService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
   login(username: string, password: string) {
 
@@ -22,6 +23,7 @@ export class LoginService {
           // Store the received token in local storage to keep the user authenticated between pages 
           if (user && user.token) {
             localStorage.setItem('currentUser', JSON.stringify(user))
+            this.router.navigate(['/']);
           } 
         }
       )
