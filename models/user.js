@@ -34,16 +34,6 @@ const userSchema = mongoose.Schema({
       type: String,
       required: true
     },
-    tokens: [{
-        access: {
-            type: String,
-            required: true
-        },
-        token: {
-            type: String,
-            required: true
-        }
-    }],
     privileges: {
         type: Number,
         required: false,
