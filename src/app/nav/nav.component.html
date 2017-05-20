@@ -16,8 +16,9 @@
         <li class="active"><a href="https://osu.ppy.sh/" target="_blank"><i class="fa fa-music"></i> osu!</a></li>
         <li class="active"><a href="https://github.com/Eggplants/Eggplants" target="_blank"><i class="fa fa-github"></i> Source</a></li>
         <li class="active"><a href="mailto:contact@swan.moe" target="_blank"><i class="fa fa-envelope"></i> Contact</a></li>
-        <li class="active"><a routerLink="/register"><i class="fa fa-user"></i> Register</a></li>
-        <li class="active"><a routerLink="/login"><i class="fa fa-sign-in"></i> Log In</a></li>
+        <li *ngIf="!this.appService.isLoggedIn()" class="active"><a routerLink="/register"><i class="fa fa-user"></i> Register</a></li>
+        <li *ngIf="!this.appService.isLoggedIn()" class="active"><a routerLink="/login"><i class="fa fa-sign-in"></i> Log In</a></li>
+        <li *ngIf="this.appService.isLoggedIn()" class="active"><a (click)="this.appService.logout()"><i class="fa fa-sign-out"></i> Log Out</a></li>
       </ul>
 
       <!-- Direct -->

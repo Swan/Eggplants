@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DirectService } from './direct.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,8 +17,7 @@ export class NavComponent implements OnInit {
   downloadSuccess: boolean;
   formSubmitted: boolean;
 
-  constructor(private directService: DirectService) { }
-
+  constructor(private directService: DirectService, private appService: AppService) { }
 
   ngOnInit() {
       // Create the form group
