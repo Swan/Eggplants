@@ -18,7 +18,8 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
-
+import { AuthGuard } from './guards/auth.guard';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { LoginService } from './login/login.service';
     ReactiveFormsModule,
     routing
   ],
-  providers: [DirectService, BeatmapListService, BeatmapListComponent, RegisterService, LoginService],
+  providers: [DirectService, BeatmapListService, BeatmapListComponent, RegisterService, LoginService, AuthGuard, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
