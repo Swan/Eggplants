@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
 
 import { RegisterService } from './register.service';
 
@@ -37,7 +36,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.registerService.registerUser(this.registerForm.value.username, this.registerForm.value.email, this.registerForm.value.password);
-    
   }
 
 }
