@@ -15,6 +15,7 @@ export class BeatmapListComponent implements OnInit {
   constructor(private beatmapListService: BeatmapListService) {}
 
   ngOnInit(): any {
+    this.beatmapListService.foundBeatmaps = false;
     this.beatmapListService.setNewBeatmaps(this.beatmapListService.getInitialBeatmaps());
   }
 
