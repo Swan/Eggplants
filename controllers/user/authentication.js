@@ -24,7 +24,7 @@ module.exports.register = (req, res) => {
 
     // Generate a JWT & return it
     let token = user.generateAuthToken();
-    return res.status(200).json({ status: 200, token: token });
+    return res.status(200).json({ status: 200, message: `${user.username} has successfully registered!` });
   });
 
 };
