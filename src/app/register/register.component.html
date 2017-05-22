@@ -18,6 +18,17 @@
         </div>   
     </div>
 
+    <div *ngIf="this.registerService.signupError != 'None'">
+        <div class="wrapper container-fluid">
+            <div class="row">
+              <div class="center_div">
+                  <div class="alert-message alert-message-danger centa">
+                      <p>{{this.registerService.signupError}}</p>
+                  </div>
+            </div> 
+          </div>
+        </div>   
+    </div>
     <!-- Invalid Username -->
 
     <!-- Invalid Email -->
