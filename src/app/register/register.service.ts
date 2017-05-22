@@ -26,7 +26,7 @@ export class RegisterService {
         let data = response.json();
         console.log(data);
         // For successful registration
-        if (data && data.status == 200) this.isRegistered = true;
+        if (data && data.status == 200 && data.ok == true) this.isRegistered = true;
       }
     );
 

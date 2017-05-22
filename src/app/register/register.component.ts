@@ -13,11 +13,6 @@ export class RegisterComponent implements OnInit {
 
   private registerForm: FormGroup;
 
-  private username: string;
-  private email: string;
-  private password: string;
-  private confirmPass: string;
-
   constructor(private registerService: RegisterService) { 
     this.registerForm = new FormGroup({
       username: new FormControl(),

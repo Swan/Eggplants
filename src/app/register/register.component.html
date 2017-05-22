@@ -37,7 +37,7 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-              <input type="text" [(ngModel)]="username" class="form-control" name="username" id="username"  placeholder="Enter your Username" formControlName="username"/>
+              <input type="text" [(ngModel)]="username" class="form-control" name="username" id="username"  placeholder="Enter your Username" formControlName="username" pattern="^[a-z0-9_-]{3,15}$" required/>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input type="text" [(ngModel)]="email" class="form-control" name="email" id="email"  placeholder="Enter your Email" formControlName="email"/>
+              <input type="text" [(ngModel)]="email" class="form-control" name="email" id="email"  placeholder="Enter your Email" formControlName="email" required/>
             </div>
           </div>
         </div>
@@ -57,23 +57,13 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-              <input type="password" [(ngModel)]="pass" class="form-control" name="password" id="password"  placeholder="Enter your Password" formControlName="password"/>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirm" class="cols-sm-2 control-label form-text">Confirm Password</label>
-          <div class="cols-sm-10">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-              <input type="password" [(ngModel)]="confirmPass" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password" formControlName="confirmPassword"/>
+              <input type="password" [(ngModel)]="pass" class="form-control" name="password" id="password"  placeholder="Enter your Password" formControlName="password" required/>
             </div>
           </div>
         </div>
 
         <div class="form-group ">
-          <button type="submit" [disabled]="!confirmPass || !pass || !email || !username" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+          <button type="submit" [disabled]="!pass || !email || !username" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
           <br/>
           <p class="center">Made with 🍆</p>
         </div>

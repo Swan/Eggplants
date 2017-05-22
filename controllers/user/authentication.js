@@ -5,7 +5,7 @@ const User = require('../../models/user');
 module.exports.register = (req, res) => {
   // If all three don't exists, then return
   if (!req.body.username && req.body.email && req.body.password) {
-    return res.status(400).json({status: 400, error: err});
+    return res.status(200).json({status: 200, ok: false, message: "A username, email, or password was not provided."});
   }
 
   // Create a new user and attempt to save to the database
@@ -19,12 +19,11 @@ module.exports.register = (req, res) => {
     
     // Return error if unable to save to the database
     if (err) {
-      return res.status(500).json({status: 500, error: err});
+      return res.status(200).json({status: 200, ok: false, message: err});
     }
 
-    // Generate a JWT & return it
-    let token = user.generateAuthToken();
-    return res.status(200).json({ status: 200, message: `${user.username} has successfully registered!` });
+    // Return that the user successfully signed ok
+    return res.status(200).json({ status: 200, ok: true, message: `${user.username} has successfully registered!`});
   });
 
 };
@@ -33,22 +32,22 @@ module.exports.register = (req, res) => {
 module.exports.login = (req, res) => {
   // If somehow a username or email was never provided
    if (!req.body.username && req.body.password)
-    return res.status(400).json({status: 400, error: err}); 
+    return res.status(200).json({status: 200, ok: false, message: err}); 
 
   // Authenticate the user
   passport.authenticate('local', (err, user, info) => {
     let token;
 
     // Error handling
-    if (err) return res.status(404).json(err);
+    if (err) return res.status(200).json({status: 200, ok: false, message: err});
 
     // If a user is found, generate a JWT and return it
     if (user) {
       token = user.generateAuthToken();
-      return res.status(200).json({status: 200, token: token});
+      return res.status(200).json({status: 200, ok: true, token: token});
     // If a user wasn't found
     } else {
-      res.status(401).json(info);
+      res.status(200).json({status: 200, ok: false, message: info});
     }
 
   })(req, res);
