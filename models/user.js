@@ -13,7 +13,14 @@ const userSchema = mongoose.Schema({
         minlength: 3,
         maxlength: 15,
         unique: true,
-        lowercase: true
+        lowercase: true,
+        validate: [{
+            validator: value => {
+                let usernameRegex = /^[a-z0-9_-]{3,15}$/;
+                return usernameRegex.test(value)
+            },
+            msg: 'Invalid Username'
+        }]
     },
     email: {
         type: String,
