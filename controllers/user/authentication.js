@@ -8,6 +8,9 @@ module.exports.register = (req, res) => {
     return res.status(200).json({status: 200, ok: false, message: "A username, email, or password was not provided."});
   }
 
+  // If Password is too short
+  if (req.body.password.length < 6) return res.status(200).json({status: 200, ok: false, message: "The password provided is too short"});
+
   // Create a new user and attempt to save to the database
   let user = new User();
   
