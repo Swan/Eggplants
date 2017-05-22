@@ -5,6 +5,7 @@
       <h5 class="center">Want to get some extra features, such as adding beatmaps to shareable collections? <br/>Fear not, just sign up here. Already have an account?
       What are you waiting for, <a routerLink="/login">log in!</a></h5>
 
+      <!-- Successful Registration -->
     <div *ngIf="this.registerService.isRegistered">
         <div class="wrapper container-fluid">
             <div class="row">
@@ -16,6 +17,18 @@
           </div>
         </div>   
     </div>
+
+    <!-- Invalid Username -->
+
+    <!-- Invalid Email -->
+
+    <!-- Invalid Password -->
+
+    <!-- Passwords don't match -->
+    
+    <!-- Username Taken -->
+
+    <!-- Email Taken -->
     
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
