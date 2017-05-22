@@ -12,14 +12,11 @@ import { RegisterService } from './register.service';
 export class RegisterComponent implements OnInit {
 
   private registerForm: FormGroup;
-  private submitted: boolean;
 
-  // All possible errors when signing up
-  private differentPasswords: boolean;
-  private usernameTaken: boolean;
-  private emailTaken: boolean;
-  private shortPassword: boolean;
-  private badPassword: boolean;
+  private username: string;
+  private email: string;
+  private password: string;
+  private confirmPass: string;
 
   constructor(private registerService: RegisterService) { 
     this.registerForm = new FormGroup({
@@ -34,7 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     this.registerService.registerUser(this.registerForm.value.username, this.registerForm.value.email, this.registerForm.value.password);
   }
 

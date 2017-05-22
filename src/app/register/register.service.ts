@@ -7,7 +7,11 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class RegisterService {
 
-  constructor(private http: Http) { }
+  public isRegistered: boolean;
+
+  constructor(private http: Http) {
+    this.isRegistered = false;
+   }
 
   // Responsible for registering the user.
   registerUser(username: string, email: string, password: string) {
@@ -19,9 +23,10 @@ export class RegisterService {
     this.http.post('/api/users/new', body, options)
     .subscribe(
       response => {
-        let data: JSON = response.json();
+        let data = response.json();
         console.log(data);
-        console.log(`${username} has successfully signed up!`)
+        // For successful registration
+        if (data && data.status == 200) this.isRegistered = true;
       }
     );
 

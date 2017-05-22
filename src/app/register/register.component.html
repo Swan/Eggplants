@@ -4,6 +4,19 @@
       <h1 class="center">Register</h1>
       <h5 class="center">Want to get some extra features, such as adding beatmaps to shareable collections? <br/>Fear not, just sign up here. Already have an account?
       What are you waiting for, <a routerLink="/login">log in!</a></h5>
+
+    <div *ngIf="this.registerService.isRegistered">
+        <div class="wrapper container-fluid">
+            <div class="row">
+              <div class="center_div">
+                  <div class="alert-message alert-message-success centa">
+                      <h4>You have successfully registered, click <a routerLink="/login"><strong>here</strong></a> to login!</h4>
+                  </div>
+            </div> 
+          </div>
+        </div>   
+    </div>
+    
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
