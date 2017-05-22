@@ -26,7 +26,6 @@ export class RegisterService {
     .subscribe(
       response => {
         let data = response.json();
-        console.log(data);
 
         // If there is an error, set a sign up error to be used in the DOM
         if (data && !data.ok) {
