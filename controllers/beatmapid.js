@@ -1,21 +1,10 @@
-const axios = require('axios');
+const rippleAPI = require('rippleapi');
 
-// Responsible for checking if a /b/ exists on Ripple's mirror and download it if so.
-const beatmapIdDownload = (req, res) => {
-    
-    const url = `http://storage.ripple.moe/b/${req.params.beatmapId}`;
-
-    axios.get(url)
-        .then((response) => {
-            return res.redirect(`http://storage.ripple.moe/${response.data['ParentSetID']}.osz`);
-        })
-        .catch((err) => {
-            const status = 404;
-            const error = 'Beatmap not found';
-            
-            return res.status(status).json({status, error});
-        });
-
+module.exports.checkBeatmapIdExists = async (req, res) => {
+    try {
+        const beatmap = await rippleAPI.getBeatmapInfo(req.params.id);
+        return res.status(200).json({ status: 200, beatmap });
+    } catch (err) {
+        return res.status(404).json({ status: 404, error: 'The beatmapId you have entered was not found.' });
+    }
 };
-
-module.exports = { beatmapIdDownload };

@@ -1,16 +1,35 @@
 const express = require('express');
 const router = express.Router();
 
-const { getInitialBeatmaps } = require('../controllers/getinitialbeatmaps');
-const { setIdDownload } = require('../controllers/setid');
-const { beatmapIdDownload } = require('../controllers/beatmapid');
+const home = require('../controllers/home');
+const beatmapId = require('../controllers/beatmapid');
+const beatmapSetId = require('../controllers/beatmapsetid');
+const search = require('../controllers/search');
+const initialBeatmaps = require('../controllers/initialbeatmaps');
 
-/* 
- * Gives the user the ability to download and share beatmaps.
- * https://eggplants.org/s/320118 | This should download: "Reol - No Title"
- * https://eggplants.org/b/736215 | This should download: "Panda Eyes & Teminite - Highscore"
- */
-router.get('/s/:setId', setIdDownload);
-router.get('/b/:beatmapId', beatmapIdDownload);
+router
+    .route('/')
+    .get(home.renderHome);
+
+router
+    .route('/api/b/:id')
+    .get(beatmapId.checkBeatmapIdExists);
+
+router
+    .route('/api/s/:id')
+    .get(beatmapSetId.checkBeatmapSetIdExists);
+
+router
+    .route('/api/search')
+    .get(search.searchBeatmaps);
+
+router
+    .route('/api/initialbeatmaps')
+    .get(initialBeatmaps.getInitialBeatmaps);
+
+router
+    .route('*')
+    .get(home.renderHome);
+
 
 module.exports = router;
