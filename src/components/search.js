@@ -56,7 +56,7 @@ class Search extends Component {
                             <div className="alert-message alert-message-success">
                                 <h4>Success: {this.props.newBeatmaps.beatmaps.length} beatmap(s) were found.</h4>
                                 <p>You've found <strong>{this.props.newBeatmaps.beatmaps.length}</strong> beatmaps. Now get to downloading!</p>
-                                <p>Feel free to request any beatmaps or report any issues on <a href="https://github.com/Swan/Eggplants" target="_blank">Github.</a></p>
+                                <p>Feel free to request any features or report any issues on <a href="https://github.com/Swan/Eggplants" target="_blank">Github.</a></p>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ class Search extends Component {
                             <div className="alert-message alert-message-danger">
                                 <h4>Error: No Beatmaps Found</h4>
                                 <p>Unfortunately there weren't any beatmaps found.</p>
-                                <p>Feel free to request any beatmaps or report any issues on <a href="https://github.com/Swan/Eggplants" target="_blank">Github.</a></p>
+                                <p>Feel free to request any features or report any issues on <a href="https://github.com/Swan/Eggplants" target="_blank">Github.</a></p>
                             </div>
                         </div>
                     </div>
