@@ -1,6 +1,7 @@
 # Eggplants
+**Important!: The domain has changed from [eggplants.org](https://eggplants.org) to [osu.eggplants.org](https://osu.eggplants.org)
 
-This repository contains the source code that currently runs [Eggplants](https://eggplants.org). In short, Eggplants is an alternative beatmap listing website. This project was started in January of 2017 and has now been rewritten for the fourth time - while first using EJS templates, Angular 1, Angular 4, and now **React**. The purpose of this project is mainly to serve as a learning experience while sharpening up my skills. Eggplants is pretty much powered on the [Ripple](https://ripple.moe) mirror and API for retrieving and serving beatmaps and beatmap data, so huge thanks to them.
+This repository contains the source code that currently runs [Eggplants](https://osu.eggplants.org). In short, Eggplants is an alternative beatmap listing website. This project was started in January of 2017 and has now been rewritten for the fourth time - while first using EJS templates, Angular 1, Angular 4, and now **React**. The purpose of this project is mainly to serve as a learning experience while sharpening up my skills. Eggplants is pretty much powered on the [Ripple](https://ripple.moe) mirror and API for retrieving and serving beatmaps and beatmap data, so huge thanks to them.
 
 # Features
 
@@ -9,7 +10,6 @@ While Eggplants may seems small, it's packed with some fairly useful features in
 * Searching & Downloading Beatmaps
 * Creating Shareable Beatmap Links
 * Directly Downloading Beatmaps w/ /b/ and /s/ Links
-* [Juicy Eggplants](https://juicy.eggplants.org) - Free File Hosting Service
 
 # LICENSE
 
