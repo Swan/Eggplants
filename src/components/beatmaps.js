@@ -44,7 +44,7 @@ class Beatmaps extends Component {
                     return (
                         <div key={beatmap.SetID} className="col-xs-12 col-sm-12 col-lg-3">
                             <div className="thumbnail thumby">
-                                <a href={`http://eggplants.org/s/${beatmap.SetID}`} target="_blank">
+                                <a href={`http://osu.eggplants.org/s/${beatmap.SetID}`} target="_blank">
                                 <img className="thumb-img" src={`https://assets.ppy.sh//beatmaps/${beatmap.SetID}/covers/cover.jpg?1486129185`} />
                                 </a>
 
@@ -59,8 +59,8 @@ class Beatmaps extends Component {
 
                                     <br/><br/>
                                     
-                                    <a href={`http://eggplants.org/s/${beatmap.SetID}`} target="_blank" className="btn btn-default btn-xs pull-right" role="button"><i className="fa fa-download"></i></a>
-                                    <a href={`http://eggplants.org/s/${beatmap.SetID}`} target="_blank" className="btn btn-info btn-xs download-button" role="button">Download</a> 
+                                    <a href={`http://osu.eggplants.org/s/${beatmap.SetID}`} target="_blank" className="btn btn-default btn-xs pull-right" role="button"><i className="fa fa-download"></i></a>
+                                    <a href={`http://osu.eggplants.org/s/${beatmap.SetID}`} target="_blank" className="btn btn-info btn-xs download-button" role="button">Download</a> 
                                     <a href={`http://osu.ppy.sh/s/${beatmap.SetID}`} target="_blank" className="btn btn-danger btn-xs" role="button">View on osu!</a>                           
                                 </div>                                             
                             </div>
