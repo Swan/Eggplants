@@ -18,9 +18,9 @@ class Download extends Component {
             // We check if the beatmap has a property named beatmapSet - Meaning a /s/ link was passed.
             // If not, then it must be a /b/ link which has a ParentSetID -- returned from the Ripple API.
             if (this.props.isValidMap.beatmapSet)
-                return window.location = `https://storage.ripple.moe/${this.props.isValidMap.beatmapSet.SetID}.osz`;
+                return window.location = `https://storage.ripple.moe/d/${this.props.isValidMap.beatmapSet.SetID}`;
             else
-                return window.location = `https://storage.ripple.moe/${this.props.isValidMap.beatmap.ParentSetID}.osz`;
+                return window.location = `https://storage.ripple.moe/d/${this.props.isValidMap.beatmap.ParentSetID}`;
 
             // Just move back to the homepage if it isn't valid.
         } else if (this.props.isValidMap != 'undefined' && this.props.isValidMap == false) {

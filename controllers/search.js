@@ -17,7 +17,7 @@ module.exports.searchBeatmaps = async (req, res) => {
 
         // Initialize the beatmaps array, we'll use to store the returned maps
         // and cut off any maps that don't have the correct key count (if mania)
-        let beatmaps = response.Sets;
+        let beatmaps = response;
         if (mode === 'mania') beatmaps = getMatchedKeys(beatmaps, keys);
 
         // Order the beatmaps by its exact query match.
@@ -71,8 +71,8 @@ const orderByQueryMatch = (beatmaps, query) => {
 const getMatchedKeys = (beatmaps, keys) => {
     return beatmaps.map((beatmap) => {
         // Loop through that beatmap set's child maps and find matching keys.
-        for (let i = 0; i < beatmap.ChildrenBeatmaps2.length; i++) {
-             if (beatmap.ChildrenBeatmaps2[i].CS == keys) {
+        for (let i = 0; i < beatmap.ChildrenBeatmaps.length; i++) {
+             if (beatmap.ChildrenBeatmaps[i].CS == keys) {
                  return beatmap;
              }
         }

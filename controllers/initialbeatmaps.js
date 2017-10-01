@@ -15,5 +15,5 @@ module.exports.getInitialBeatmaps = async (req, res) => {
     // Get beatmaps from the Ripple API and return them.
     const response = await rippleAPI.searchBeatmaps('', randomGameMode, 'ranked', 100, offset);
 
-    return res.status(200).json({ status: 200, gameMode: randomGameMode, beatmaps: response.Sets });
+    return res.status(200).json({ status: 200, gameMode: randomGameMode, beatmaps: response });
 };

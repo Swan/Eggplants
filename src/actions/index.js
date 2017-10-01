@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_INITIAL_BEATMAPS, CHECK_VALID_MAP, GET_NEW_BEATMAPS, CLEAR_BEATMAPS_BEFORE_SEARCH } from "./types";
 
-const ROOT_URL = `https://api.eggplants.org/api`;
+const ROOT_URL = `http://localhost:8088/api`;
 
 // Responsible for reaching out to the local API and grabbing 100 initial beatmaps.
 // These beatmaps are random in the sense that they can be from game modes 0-3. 
