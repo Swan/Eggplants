@@ -89,7 +89,7 @@ class Search extends Component {
                 <div className="container-fluid">
                     <div className="eggplants-search-info">
                         <h2><i className="fa fa-search"></i> Search For Beatmaps</h2>
-                        <h4>It's extremely easy to get start finding osu! beatmaps to download.</h4>
+                        <h4>It's extremely easy to start finding osu! beatmaps to download.</h4>
                         <h4>Just enter in a search query, and click the purple button.</h4>
                         <h4>You can create shareable beatmap links by using:</h4>
                         <h5>- https://osu.eggplants.org/s/:id</h5>
