@@ -1,6 +1,6 @@
 {
   "name": "eggplants",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "An alternative beatmap listing website for the game osu!",
   "main": "index.js",
   "repository": "git@github.com:Swan/Eggplants.git",
