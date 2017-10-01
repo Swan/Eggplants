@@ -9,7 +9,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-const PORT = process.env.PORT || config.CLIENT_SERVER_PORT;
+const PORT = process.env.PORT || config.client_server_port;
 app.listen(PORT, () => {
    console.log(`[CLIENT] HTTP CLIENT SERVER STARTED ON PORT: ${PORT}`);
 });

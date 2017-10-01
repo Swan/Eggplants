@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', routes);
 
-const PORT = process.env.PORT || config.API_SERVER_PORT;
+const PORT = process.env.PORT || config.api_server_port;
 app.listen(PORT, () => {
    console.log(`[API] HTTP API SERVER STARTED ON PORT: ${PORT}`);
 });
