@@ -7,4 +7,5 @@ npm-debug.log
 *.iml
 /.idea
 
+# Config File
 /config/config.json
