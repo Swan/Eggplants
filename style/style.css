@@ -67,8 +67,12 @@ html,body { height:100% !important; }
 
 .navbar .navbar-collapse { position: relative; }
 
-.navbar li>a:hover {
+
+.navbar li>a {
     color: #b79df8 !important;
+}
+.navbar li>a:hover {
+    color: #FFF !important;
 }
 
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
