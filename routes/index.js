@@ -31,5 +31,4 @@ router
     .route('*')
     .get(home.renderHome);
 
-
 module.exports = router;
