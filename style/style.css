@@ -99,6 +99,7 @@ html,body { height:100% !important; }
 
 .cover {
     background: url("/images/cover.jpg") no-repeat;
+    background-size: cover;
     height: 250px;
     width: 100%;
     display: block;
