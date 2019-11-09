@@ -1,6 +1,6 @@
 # Eggplants
 
-This repository contains the source code that currently runs [Eggplants](https://osu.eggplants.org). In short, Eggplants is an alternative [osu!](https://osu.ppy.sh) beatmap listing website. Eggplants is pretty much powered on the [Ripple](https://ripple.moe) mirror and API for retrieving and serving beatmaps and beatmap data, so huge thanks to them.
+**Eggplants** was an alternative beatmap listing/downloading website for the rhythm game osu!
 
 # Features
 
